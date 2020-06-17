@@ -11,13 +11,27 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    private weak var loginMethod: QLoginMethod?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        self.loginMethod = self
+        let defaults = UserDefaults.standard
+        if let email = defaults.string(forKey: "UserEmail"), let pw = defaults.string(forKey: "Password") {
+            loginMethod?.login(email: email, pw: pw)
+        }else{
+            let page = QLoginPage()
+            let naviPage = UINavigationController(rootViewController: page)
+            window?.rootViewController = naviPage
+        }
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -51,3 +65,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate: QLoginMethod{
+    func successLogin(page: QMainTabView) {
+        let naviPage = UINavigationController(rootViewController: page)
+        window?.rootViewController = naviPage
+    }
+}

@@ -3,18 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1E46FA4D24992F5A00631906 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA4C24992F5A00631906 /* AppDelegate.swift */; };
 		1E46FA4F24992F5A00631906 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA4E24992F5A00631906 /* SceneDelegate.swift */; };
-		1E46FA5124992F5A00631906 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA5024992F5A00631906 /* ViewController.swift */; };
-		1E46FA5424992F5A00631906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FA5224992F5A00631906 /* Main.storyboard */; };
 		1E46FA5624992F5C00631906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FA5524992F5C00631906 /* Assets.xcassets */; };
 		1E46FA5924992F5C00631906 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FA5724992F5C00631906 /* LaunchScreen.storyboard */; };
 		1E46FA6424992F5C00631906 /* OOTDTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA6324992F5C00631906 /* OOTDTests.swift */; };
 		1E46FA6F24992F5D00631906 /* OOTDUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA6E24992F5D00631906 /* OOTDUITests.swift */; };
+		1E46FA7D24997AC000631906 /* OOTDConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA7C24997AC000631906 /* OOTDConstant.swift */; };
+		1E46FA8E24997BA000631906 /* QLoginMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA7F24997B9F00631906 /* QLoginMethod.swift */; };
+		1E46FA8F24997BA000631906 /* QLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8024997B9F00631906 /* QLoginPage.swift */; };
+		1E46FA9024997BA000631906 /* QSignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8124997B9F00631906 /* QSignUpPage.swift */; };
+		1E46FA9524997BA000631906 /* QTextInputWithLabelField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8824997B9F00631906 /* QTextInputWithLabelField.swift */; };
+		1E46FA9624997BA000631906 /* QLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8924997BA000631906 /* QLogoView.swift */; };
+		1E46FA9724997BA000631906 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8A24997BA000631906 /* File.swift */; };
+		1E46FA9824997BA000631906 /* QImageFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8B24997BA000631906 /* QImageFile.swift */; };
+		1E46FA9924997BA000631906 /* QUploadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8C24997BA000631906 /* QUploadImageView.swift */; };
+		1E46FA9A24997BA000631906 /* QTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA8D24997BA000631906 /* QTextInputView.swift */; };
+		1E46FAB424997DF800631906 /* MavenPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FAA724997DF800631906 /* MavenPro-Black.ttf */; };
+		1E46FAB524997DF800631906 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FAA824997DF800631906 /* MavenPro-Regular.ttf */; };
+		1E46FAB624997DF800631906 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FAA924997DF800631906 /* MavenPro-Medium.ttf */; };
+		1E46FAB724997DF800631906 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FAAA24997DF800631906 /* MavenPro-Bold.ttf */; };
+		1E46FAB824997DF800631906 /* UserRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAAC24997DF800631906 /* UserRealmModel.swift */; };
+		1E46FAB924997DF800631906 /* QMainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAAE24997DF800631906 /* QMainTabView.swift */; };
+		1E46FABA24997DF800631906 /* OOTDClosetMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAB024997DF800631906 /* OOTDClosetMainPage.swift */; };
+		1E46FABC24997DF800631906 /* OOTDWearMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAB324997DF800631906 /* OOTDWearMainPage.swift */; };
+		1E46FABE2499B17D00631906 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FABD2499B17D00631906 /* Main.storyboard */; };
+		1E46FAC12499C18200631906 /* OOTDUserMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAC02499C18200631906 /* OOTDUserMainPage.swift */; };
+		1E46FAC32499CFB600631906 /* OOTDClosetMainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAC22499CFB600631906 /* OOTDClosetMainViewCell.swift */; };
+		1E46FAC52499CFEC00631906 /* OOTDClosetMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAC42499CFEC00631906 /* OOTDClosetMainView.swift */; };
 		4F9F38AE9053E40A95464D65 /* Pods_OOTD_OOTDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */; };
 		733714F4F20DB43C985D93A6 /* Pods_OOTDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A75B3677F31482A38780B4F /* Pods_OOTDTests.framework */; };
 		DDC4AAA5500E29BC8F274221 /* Pods_OOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */; };
@@ -41,8 +61,6 @@
 		1E46FA4924992F5A00631906 /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E46FA4C24992F5A00631906 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E46FA4E24992F5A00631906 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1E46FA5024992F5A00631906 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1E46FA5324992F5A00631906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1E46FA5524992F5C00631906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E46FA5824992F5C00631906 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E46FA5A24992F5C00631906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,6 +70,28 @@
 		1E46FA6A24992F5D00631906 /* OOTDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OOTDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E46FA6E24992F5D00631906 /* OOTDUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUITests.swift; sourceTree = "<group>"; };
 		1E46FA7024992F5D00631906 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E46FA7C24997AC000631906 /* OOTDConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDConstant.swift; sourceTree = "<group>"; };
+		1E46FA7F24997B9F00631906 /* QLoginMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLoginMethod.swift; sourceTree = "<group>"; };
+		1E46FA8024997B9F00631906 /* QLoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLoginPage.swift; sourceTree = "<group>"; };
+		1E46FA8124997B9F00631906 /* QSignUpPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QSignUpPage.swift; sourceTree = "<group>"; };
+		1E46FA8824997B9F00631906 /* QTextInputWithLabelField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QTextInputWithLabelField.swift; sourceTree = "<group>"; };
+		1E46FA8924997BA000631906 /* QLogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QLogoView.swift; sourceTree = "<group>"; };
+		1E46FA8A24997BA000631906 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		1E46FA8B24997BA000631906 /* QImageFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QImageFile.swift; sourceTree = "<group>"; };
+		1E46FA8C24997BA000631906 /* QUploadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QUploadImageView.swift; sourceTree = "<group>"; };
+		1E46FA8D24997BA000631906 /* QTextInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QTextInputView.swift; sourceTree = "<group>"; };
+		1E46FAA724997DF800631906 /* MavenPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Black.ttf"; sourceTree = "<group>"; };
+		1E46FAA824997DF800631906 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
+		1E46FAA924997DF800631906 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
+		1E46FAAA24997DF800631906 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
+		1E46FAAC24997DF800631906 /* UserRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRealmModel.swift; sourceTree = "<group>"; };
+		1E46FAAE24997DF800631906 /* QMainTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMainTabView.swift; sourceTree = "<group>"; };
+		1E46FAB024997DF800631906 /* OOTDClosetMainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClosetMainPage.swift; sourceTree = "<group>"; };
+		1E46FAB324997DF800631906 /* OOTDWearMainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDWearMainPage.swift; sourceTree = "<group>"; };
+		1E46FABD2499B17D00631906 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1E46FAC02499C18200631906 /* OOTDUserMainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDUserMainPage.swift; sourceTree = "<group>"; };
+		1E46FAC22499CFB600631906 /* OOTDClosetMainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClosetMainViewCell.swift; sourceTree = "<group>"; };
+		1E46FAC42499CFEC00631906 /* OOTDClosetMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClosetMainView.swift; sourceTree = "<group>"; };
 		285FD89C394E0B2B9B6BD397 /* Pods-OOTDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OOTDTests.release.xcconfig"; path = "Target Support Files/Pods-OOTDTests/Pods-OOTDTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD_OOTDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,9 +168,14 @@
 			children = (
 				1E46FA4C24992F5A00631906 /* AppDelegate.swift */,
 				1E46FA4E24992F5A00631906 /* SceneDelegate.swift */,
-				1E46FA5024992F5A00631906 /* ViewController.swift */,
-				1E46FA5224992F5A00631906 /* Main.storyboard */,
+				1E46FA7C24997AC000631906 /* OOTDConstant.swift */,
+				1E46FAA624997DF800631906 /* OOTDFonts */,
+				1E46FAAD24997DF800631906 /* OOTDMainPage */,
+				1E46FAAB24997DF800631906 /* OOTDModels */,
+				1E46FA8724997B9F00631906 /* OOTDLib */,
+				1E46FA7E24997B9F00631906 /* OOTDLoginPage */,
 				1E46FA5524992F5C00631906 /* Assets.xcassets */,
+				1E46FABD2499B17D00631906 /* Main.storyboard */,
 				1E46FA5724992F5C00631906 /* LaunchScreen.storyboard */,
 				1E46FA5A24992F5C00631906 /* Info.plist */,
 			);
@@ -155,6 +200,85 @@
 			path = OOTDUITests;
 			sourceTree = "<group>";
 		};
+		1E46FA7E24997B9F00631906 /* OOTDLoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FA7F24997B9F00631906 /* QLoginMethod.swift */,
+				1E46FA8024997B9F00631906 /* QLoginPage.swift */,
+				1E46FA8124997B9F00631906 /* QSignUpPage.swift */,
+			);
+			path = OOTDLoginPage;
+			sourceTree = "<group>";
+		};
+		1E46FA8724997B9F00631906 /* OOTDLib */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FA8824997B9F00631906 /* QTextInputWithLabelField.swift */,
+				1E46FA8924997BA000631906 /* QLogoView.swift */,
+				1E46FA8A24997BA000631906 /* File.swift */,
+				1E46FA8B24997BA000631906 /* QImageFile.swift */,
+				1E46FA8C24997BA000631906 /* QUploadImageView.swift */,
+				1E46FA8D24997BA000631906 /* QTextInputView.swift */,
+			);
+			path = OOTDLib;
+			sourceTree = "<group>";
+		};
+		1E46FAA624997DF800631906 /* OOTDFonts */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FAA724997DF800631906 /* MavenPro-Black.ttf */,
+				1E46FAA824997DF800631906 /* MavenPro-Regular.ttf */,
+				1E46FAA924997DF800631906 /* MavenPro-Medium.ttf */,
+				1E46FAAA24997DF800631906 /* MavenPro-Bold.ttf */,
+			);
+			path = OOTDFonts;
+			sourceTree = "<group>";
+		};
+		1E46FAAB24997DF800631906 /* OOTDModels */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FAAC24997DF800631906 /* UserRealmModel.swift */,
+			);
+			path = OOTDModels;
+			sourceTree = "<group>";
+		};
+		1E46FAAD24997DF800631906 /* OOTDMainPage */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FAAE24997DF800631906 /* QMainTabView.swift */,
+				1E46FAB124997DF800631906 /* wearListPage */,
+				1E46FAAF24997DF800631906 /* closetPage */,
+				1E46FABF2499C11100631906 /* userPage */,
+			);
+			path = OOTDMainPage;
+			sourceTree = "<group>";
+		};
+		1E46FAAF24997DF800631906 /* closetPage */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FAB024997DF800631906 /* OOTDClosetMainPage.swift */,
+				1E46FAC42499CFEC00631906 /* OOTDClosetMainView.swift */,
+				1E46FAC22499CFB600631906 /* OOTDClosetMainViewCell.swift */,
+			);
+			path = closetPage;
+			sourceTree = "<group>";
+		};
+		1E46FAB124997DF800631906 /* wearListPage */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FAB324997DF800631906 /* OOTDWearMainPage.swift */,
+			);
+			path = wearListPage;
+			sourceTree = "<group>";
+		};
+		1E46FABF2499C11100631906 /* userPage */ = {
+			isa = PBXGroup;
+			children = (
+				1E46FAC02499C18200631906 /* OOTDUserMainPage.swift */,
+			);
+			path = userPage;
+			sourceTree = "<group>";
+		};
 		362FB14AF795982AA4A9C725 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +289,6 @@
 				F558ECA92A904B13B0E663E6 /* Pods-OOTDTests.debug.xcconfig */,
 				285FD89C394E0B2B9B6BD397 /* Pods-OOTDTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -278,9 +401,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E46FABE2499B17D00631906 /* Main.storyboard in Resources */,
+				1E46FAB424997DF800631906 /* MavenPro-Black.ttf in Resources */,
+				1E46FAB724997DF800631906 /* MavenPro-Bold.ttf in Resources */,
+				1E46FAB524997DF800631906 /* MavenPro-Regular.ttf in Resources */,
 				1E46FA5924992F5C00631906 /* LaunchScreen.storyboard in Resources */,
 				1E46FA5624992F5C00631906 /* Assets.xcassets in Resources */,
-				1E46FA5424992F5A00631906 /* Main.storyboard in Resources */,
+				1E46FAB624997DF800631906 /* MavenPro-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,9 +535,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E46FA5124992F5A00631906 /* ViewController.swift in Sources */,
+				1E46FAC12499C18200631906 /* OOTDUserMainPage.swift in Sources */,
+				1E46FA9924997BA000631906 /* QUploadImageView.swift in Sources */,
+				1E46FA9824997BA000631906 /* QImageFile.swift in Sources */,
+				1E46FA9624997BA000631906 /* QLogoView.swift in Sources */,
+				1E46FAC52499CFEC00631906 /* OOTDClosetMainView.swift in Sources */,
+				1E46FA8E24997BA000631906 /* QLoginMethod.swift in Sources */,
+				1E46FA8F24997BA000631906 /* QLoginPage.swift in Sources */,
+				1E46FA7D24997AC000631906 /* OOTDConstant.swift in Sources */,
+				1E46FA9724997BA000631906 /* File.swift in Sources */,
+				1E46FAB824997DF800631906 /* UserRealmModel.swift in Sources */,
+				1E46FA9A24997BA000631906 /* QTextInputView.swift in Sources */,
 				1E46FA4D24992F5A00631906 /* AppDelegate.swift in Sources */,
 				1E46FA4F24992F5A00631906 /* SceneDelegate.swift in Sources */,
+				1E46FABC24997DF800631906 /* OOTDWearMainPage.swift in Sources */,
+				1E46FA9024997BA000631906 /* QSignUpPage.swift in Sources */,
+				1E46FAB924997DF800631906 /* QMainTabView.swift in Sources */,
+				1E46FABA24997DF800631906 /* OOTDClosetMainPage.swift in Sources */,
+				1E46FA9524997BA000631906 /* QTextInputWithLabelField.swift in Sources */,
+				1E46FAC32499CFB600631906 /* OOTDClosetMainViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,14 +589,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1E46FA5224992F5A00631906 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1E46FA5324992F5A00631906 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1E46FA5724992F5C00631906 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -515,7 +650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -569,7 +704,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

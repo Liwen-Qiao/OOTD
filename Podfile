@@ -7,6 +7,7 @@ target 'OOTD' do
 	
 	pod 'RealmSwift'
 	pod 'EasyPeasy'
+  pod 'SOTabBar'
 
   # Pods for OOTD
 
