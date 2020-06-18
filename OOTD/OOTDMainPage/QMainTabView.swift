@@ -35,9 +35,7 @@ class QMainTabView: SOTabBarController{
         
         super.viewDidLoad()
         
-        let defaults = UserDefaults.standard
-        let restaurant = defaults.string(forKey: "restaurantName")
-        self.title = restaurant
+        //let defaults = UserDefaults.standard
         navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]

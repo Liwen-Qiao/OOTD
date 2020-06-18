@@ -18,7 +18,7 @@ class QLogoView: UIView {
         
         iconImageView = UIImageView()
         if isChanged == false{
-            iconImageView.image = #imageLiteral(resourceName: "Logo")}
+            iconImageView.image = #imageLiteral(resourceName: "wearSelectedIcon")}
         iconImageView.clipsToBounds = true
         iconImageView.layer.cornerRadius = 50
         self.layer.borderColor = UIColor.white.cgColor

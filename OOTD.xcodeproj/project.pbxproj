@@ -35,6 +35,7 @@
 		1E46FAC12499C18200631906 /* OOTDUserMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAC02499C18200631906 /* OOTDUserMainPage.swift */; };
 		1E46FAC32499CFB600631906 /* OOTDClosetMainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAC22499CFB600631906 /* OOTDClosetMainViewCell.swift */; };
 		1E46FAC52499CFEC00631906 /* OOTDClosetMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAC42499CFEC00631906 /* OOTDClosetMainView.swift */; };
+		1E46FAC7249A869500631906 /* OOTDClothesTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FAC6249A869500631906 /* OOTDClothesTypeView.swift */; };
 		4F9F38AE9053E40A95464D65 /* Pods_OOTD_OOTDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */; };
 		733714F4F20DB43C985D93A6 /* Pods_OOTDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A75B3677F31482A38780B4F /* Pods_OOTDTests.framework */; };
 		DDC4AAA5500E29BC8F274221 /* Pods_OOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */; };
@@ -92,6 +93,7 @@
 		1E46FAC02499C18200631906 /* OOTDUserMainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDUserMainPage.swift; sourceTree = "<group>"; };
 		1E46FAC22499CFB600631906 /* OOTDClosetMainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClosetMainViewCell.swift; sourceTree = "<group>"; };
 		1E46FAC42499CFEC00631906 /* OOTDClosetMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClosetMainView.swift; sourceTree = "<group>"; };
+		1E46FAC6249A869500631906 /* OOTDClothesTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClothesTypeView.swift; sourceTree = "<group>"; };
 		285FD89C394E0B2B9B6BD397 /* Pods-OOTDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OOTDTests.release.xcconfig"; path = "Target Support Files/Pods-OOTDTests/Pods-OOTDTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD_OOTDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				1E46FAB024997DF800631906 /* OOTDClosetMainPage.swift */,
+				1E46FAC6249A869500631906 /* OOTDClothesTypeView.swift */,
 				1E46FAC42499CFEC00631906 /* OOTDClosetMainView.swift */,
 				1E46FAC22499CFB600631906 /* OOTDClosetMainViewCell.swift */,
 			);
@@ -540,6 +543,7 @@
 				1E46FA9824997BA000631906 /* QImageFile.swift in Sources */,
 				1E46FA9624997BA000631906 /* QLogoView.swift in Sources */,
 				1E46FAC52499CFEC00631906 /* OOTDClosetMainView.swift in Sources */,
+				1E46FAC7249A869500631906 /* OOTDClothesTypeView.swift in Sources */,
 				1E46FA8E24997BA000631906 /* QLoginMethod.swift in Sources */,
 				1E46FA8F24997BA000631906 /* QLoginPage.swift in Sources */,
 				1E46FA7D24997AC000631906 /* OOTDConstant.swift in Sources */,

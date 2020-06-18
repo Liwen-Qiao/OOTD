@@ -26,5 +26,7 @@ struct OOTDConstant {
     static let fontNormal = UIFont.systemFont(ofSize: 14)
     static let fontFrameList = UIFont.systemFont(ofSize: 9)
     static let fontFrame = UIFont.systemFont(ofSize: 9)
+    static let fontSmall = UIFont.systemFont(ofSize: 12)
+    
     
 }
