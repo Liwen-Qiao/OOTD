@@ -11,7 +11,7 @@ import RealmSwift
 
 class UserRealmModel: Object {
     
-    @objc dynamic var userId: String = ""
+    @objc dynamic var userId: String = UUID().uuidString
     @objc dynamic var userEmail: String = ""
     @objc dynamic var userPw: String = ""
     @objc dynamic var userPhoneNumber: Int = 0

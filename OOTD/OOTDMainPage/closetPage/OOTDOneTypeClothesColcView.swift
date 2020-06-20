@@ -1,5 +1,5 @@
 //
-//  OOTDClosetMainView.swift
+//  OOTDOneTypeClothesColcView.swift
 //  OOTD
 //
 //  Created by qiaoliwen on 2020/6/17.
@@ -8,17 +8,20 @@
 
 import UIKit
 
-protocol OOTDClothesTypeSelectDelegate: class {
-    func oneClothesTypePressed(pressedIndex: Int)
+protocol OOTDClothesSelectDelegate: class {
+    func oneClothesPressed(pressedIndex: Int)
 }
 
-class OOTDClosetMainView: UICollectionView {
+class OOTDOneTypeClothesColcView: UICollectionView {
     
+    private var oneTypeClothesList: [ClothesRealmModel] = []
     //delegate
-    private weak var clothesTypeSelectDelegate: OOTDClothesTypeSelectDelegate?
+    private weak var clothesTypeSelectDelegate: OOTDClothesSelectDelegate?
     
-    init(frame: CGRect, delegate: OOTDClothesTypeSelectDelegate) {
-        self.clothesTypeSelectDelegate = delegate
+    init(frame: CGRect, oneTypeClothesList: [ClothesRealmModel]) {
+        //self.clothesTypeSelectDelegate = delegate
+        
+        self.oneTypeClothesList.append(contentsOf: oneTypeClothesList)
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
@@ -34,7 +37,7 @@ class OOTDClosetMainView: UICollectionView {
         self.dataSource = self
         
         //self.toolBarItemList.append(contentsOf: toolBarItemList)
-           
+        
     }
     
     required init?(coder: NSCoder) {
@@ -46,13 +49,13 @@ class OOTDClosetMainView: UICollectionView {
     }
     
     func updateBoolBarType(clothesTypeList: [String]){
-//        self.toolBarItemList.removeAll()
-//        self.toolBarItemList.append(contentsOf: toolBarItemList)
+        //        self.toolBarItemList.removeAll()
+        //        self.toolBarItemList.append(contentsOf: toolBarItemList)
         self.reloadData()
     }
 }
 
-extension OOTDClosetMainView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension OOTDOneTypeClothesColcView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  1
         //toolBarItemList.count
@@ -60,15 +63,15 @@ extension OOTDClosetMainView: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDClosetMainViewCell", for: indexPath) as! OOTDClosetMainViewCell
-//        //cell.updateIconToolBarCell(toolBarItem: toolBarItemList[indexPath.row],
-//                                   highlightColor: highlightColor,
-//                                   backgroundColor : backGroundColor,
-//                                   iconHeight: iconHeight)
+        //        //cell.updateIconToolBarCell(toolBarItem: toolBarItemList[indexPath.row],
+        //                                   highlightColor: highlightColor,
+        //                                   backgroundColor : backGroundColor,
+        //                                   iconHeight: iconHeight)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        clothesTypeSelectDelegate?.oneClothesTypePressed(pressedIndex: indexPath.row)
+        //clothesTypeSelectDelegate?.oneClothesTypePressed(pressedIndex: indexPath.row)
     }
 }
 

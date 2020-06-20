@@ -9,6 +9,10 @@
 import UIKit
 import EasyPeasy
 
+protocol ClothesTypeBtSelectedDelegate : class{
+    func btClicked(viewTag: Int)
+}
+
 class OOTDClothesTypeView: UIView {
     
     private var iconLogoButton: UIButton!
@@ -22,12 +26,17 @@ class OOTDClothesTypeView: UIView {
     private var height: CGFloat
     private var labelBgWidth: CGFloat
     
-    init(frame: CGRect, labelBgWidth: CGFloat) {
+    private var viewTag: Int = 0
+    private weak var clothesTypeBtSelectedDelegate:  ClothesTypeBtSelectedDelegate?
+    
+    init(frame: CGRect, labelBgWidth: CGFloat, delegate: ClothesTypeBtSelectedDelegate, tag : Int ) {
         self.labelBgWidth = labelBgWidth
         x = frame.origin.x
         y = frame.origin.y
         width = frame.width
         height = frame.width
+        viewTag = tag
+        self.clothesTypeBtSelectedDelegate = delegate
         super.init(frame:frame)
         
         self.backgroundColor = OOTDConstant.darkBgColor.withAlphaComponent(0.5)
@@ -78,6 +87,7 @@ class OOTDClothesTypeView: UIView {
         //toolBarHightLight.backgroundColor = GMConstant.cloudColor
         clothesNumberLabel.easy.layout([Bottom(15), Left(0).to(clothesLabel), Width(30), Height(15)])
         print(self.frame)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -91,6 +101,7 @@ class OOTDClothesTypeView: UIView {
     }
     
     @objc func iconLogoViewnClicked(_ sender: UIButton){
+        self.clothesTypeBtSelectedDelegate?.btClicked(viewTag: viewTag)
         if iconLogoButton.isSelected == false{
             UIView.animate(withDuration: 1.0,
                            delay: 0.0,
@@ -123,11 +134,18 @@ class OOTDClothesTypeView: UIView {
             sender.isSelected = true
             print(self.frame)
         }else {
+            updateFrame()
+        }
+        
+    }
+    
+    func updateFrame(){
+        if iconLogoButton.isSelected == true{
             UIView.animate(withDuration: 1.0,
                            delay: 0.0,
                            options: [.curveEaseInOut , .allowUserInteraction],
                            animations: {
-                            sender.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
+                            self.iconLogoButton.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
             },
                            completion: { finished in
                             print("Bug faced right!")
@@ -140,15 +158,8 @@ class OOTDClothesTypeView: UIView {
             transition.subtype = CATransitionSubtype.fromRight
             self.layer.add(transition, forKey: kCATransition)
             self.frame = CGRect(x: x, y: y, width: width, height: height)
-            sender.isSelected = false
-             print(self.frame)
+            iconLogoButton.isSelected = false
         }
-        
-    }
-    
-    func updateFrame(){
-        lebelBgView.isHidden = true
-        self.frame = CGRect(x: x, y: y, width: width, height: height)
     }
 }
 
