@@ -63,8 +63,9 @@ class OOTDClosetMainPage: UIViewController{
         noTypeClothesView = OOTDClothesTypeView(frame: CGRect(x: 50, y: 20, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 1)
         noTypeClothesView.tag = 1
         self.view.addSubview(noTypeClothesView)
-        noTypeClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "closetIcon"), clotherType: "No Category", clotherNumber: 7)
+        noTypeClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "noTypeIcon"), clotherType: "No Category", clotherNumber: 7)
         clothesViewList.append(noTypeClothesView)
+        noTypeClothesView.iconLogoViewnClicked(noTypeClothesView.iconLogoButton)
         
         topsClothesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 100, width: 60, height: 60), labelBgWidth: 80, delegate: self, tag: 2)
         topsClothesView.tag = 2
@@ -75,31 +76,31 @@ class OOTDClosetMainPage: UIViewController{
         dressClothesView = OOTDClothesTypeView(frame: CGRect(x: 180, y: 250, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 3)
         dressClothesView.tag = 3
         self.view.addSubview(dressClothesView)
-        dressClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "closetIcon"), clotherType: "Dress", clotherNumber: 7)
+        dressClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "dressIcon"), clotherType: "Dress", clotherNumber: 7)
         clothesViewList.append(dressClothesView)
 
         pantsClothesView = OOTDClothesTypeView(frame: CGRect(x: 180, y: 400, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 4)
         pantsClothesView.tag = 4
         self.view.addSubview(pantsClothesView)
-        pantsClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "closetIcon"), clotherType: "Pants", clotherNumber: 7)
+        pantsClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "pantsIcon"), clotherType: "Pants", clotherNumber: 7)
         clothesViewList.append(pantsClothesView)
 
-        shoesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 550, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 4)
+        shoesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 550, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 5)
         shoesView.tag = 5
         self.view.addSubview(shoesView)
-        shoesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "closetIcon"), clotherType: "Shoes", clotherNumber: 7)
+        shoesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "shoesIcon"), clotherType: "Shoes", clotherNumber: 7)
         clothesViewList.append(shoesView)
 
-        bagsView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 450, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 5)
+        bagsView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 450, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 6)
         bagsView.tag = 6
         self.view.addSubview(bagsView)
-        bagsView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "closetIcon"), clotherType: "Bags", clotherNumber: 7)
+        bagsView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "handbagsIcon"), clotherType: "Bags", clotherNumber: 7)
         clothesViewList.append(bagsView)
 
-        accessoresView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 165, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 6)
+        accessoresView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 165, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 7)
         accessoresView.tag = 7
         self.view.addSubview(accessoresView)
-        accessoresView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "closetIcon"), clotherType: "Accessores", clotherNumber: 7)
+        accessoresView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "accessoriesIcon"), clotherType: "Accessores", clotherNumber: 7)
         clothesViewList.append(accessoresView)
         
         for clothesView in clothesViewList{

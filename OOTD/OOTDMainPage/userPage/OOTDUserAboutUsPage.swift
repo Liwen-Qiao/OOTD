@@ -1,0 +1,92 @@
+//
+//  OOTDUserAboutUsPage.swift
+//  OOTD
+//
+//  Created by qiaoliwen on 2020/6/21.
+//  Copyright © 2020 qiaoliwen. All rights reserved.
+//
+
+import UIKit
+import EasyPeasy
+
+class OOTDUserAboutUsPage: UIViewController {
+    
+    private var aboutUsTableView: UITableView!
+    
+    private var aboutusItemList: [String] = ["公司官网","关注微信公众号","商业合作","打赏程序员小姐姐"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
+        self.edgesForExtendedLayout = []
+        
+        let titleView = UIView()
+        titleView.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.7)
+        titleView.layer.shadowColor = UIColor.darkGray.cgColor
+        titleView.layer.cornerRadius = 15
+//        titleView.layer.shadowOpacity = 0.5
+//        titleView.layer.shadowOffset = CGSize(width: 5, height: 5)
+//        titleView.layer.shadowRadius = 15
+        self.view.addSubview(titleView)
+        titleView.easy.layout(Left(10), Right(10),Top(10), Height(270))
+        
+        let logoView = QLogoView(frame: CGRect.zero, isChanged: false)
+        logoView.updateIconImageView(IconImage: #imageLiteral(resourceName: "OOTDLogo"))
+        titleView.addSubview(logoView)
+        logoView.easy.layout(CenterX(0), Width(100), Height(100), Top(40))
+        
+        let companyNameLabel = UILabel()
+        companyNameLabel.text = "上海海乔信息技术有限公司"
+        companyNameLabel.textAlignment = .center
+        titleView.addSubview(companyNameLabel)
+        companyNameLabel.easy.layout(CenterX(0), Width(250), Height(15), Top(20).to(logoView))
+        
+        
+        let companyEngNameLabel = UILabel()
+        companyEngNameLabel.text = "Shanghai HighQlty Information Tecnology Ltd"
+        companyEngNameLabel.textAlignment = .center
+        companyEngNameLabel.font = OOTDConstant.fontSmall
+        titleView.addSubview(companyEngNameLabel)
+        companyEngNameLabel.easy.layout(CenterX(0), Width(UIScreen.main.bounds.width), Height(15), Top(20).to(companyNameLabel))
+        
+        let aboutUsTableViewBg = UIView()
+        aboutUsTableViewBg.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.7)
+        aboutUsTableViewBg.layer.shadowColor = UIColor.darkGray.cgColor
+        aboutUsTableViewBg.layer.cornerRadius = 15
+//        aboutUsTableViewBg.layer.shadowOpacity = 0.5
+//        aboutUsTableViewBg.layer.shadowOffset = CGSize(width: 5, height: 5)
+//        aboutUsTableViewBg.layer.shadowRadius = 15
+        self.view.addSubview(aboutUsTableViewBg)
+        aboutUsTableViewBg.easy.layout(Left(10), Right(10),Top(15).to(titleView), Bottom(10))
+        
+        aboutUsTableView = UITableView()
+        aboutUsTableView.backgroundColor = .clear
+        aboutUsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "userAboutUsTableViewCell")
+        aboutUsTableView.delegate = self
+        aboutUsTableView.dataSource = self
+        aboutUsTableViewBg.addSubview(aboutUsTableView)
+        aboutUsTableView.easy.layout(Left(10), Right(10),Top(10), Bottom(10))
+        
+        
+        
+    }
+    
+}
+extension OOTDUserAboutUsPage: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userAboutUsTableViewCell", for: indexPath)
+        cell.textLabel?.text = aboutusItemList[indexPath.row]
+        cell.accessoryType = .disclosureIndicator
+        cell.layer.cornerRadius = 15
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+}

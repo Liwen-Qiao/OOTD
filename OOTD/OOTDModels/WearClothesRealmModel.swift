@@ -16,8 +16,8 @@ class WearClothesRealmModel: Object , StickerViewProtocol{
     @objc dynamic var wearClothesHeight: Int = 100
     @objc dynamic var wearClothesX: Int = 100
     @objc dynamic var wearClothesY: Int = 100
-    @objc dynamic var wearClothesScale: CGFloat = 0
-    @objc dynamic var wearClothesRadian: CGFloat = 0
+    @objc dynamic var wearClothesScale: Float = 0
+    @objc dynamic var wearClothesRadian: Float = 0
     @objc dynamic var wearClothesMainImage: String = ""
     @objc dynamic var wearClothesMainImageType: String = ""
     
@@ -54,10 +54,10 @@ class WearClothesRealmModel: Object , StickerViewProtocol{
     }
     var stickerViewRadian: CGFloat{
         get{
-            return self.wearClothesRadian
+            return CGFloat(self.wearClothesRadian)
         }
         set{
-            self.wearClothesRadian = newValue
+            self.wearClothesRadian = Float(newValue)
         }
     }
     

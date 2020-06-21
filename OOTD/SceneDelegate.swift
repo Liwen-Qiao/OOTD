@@ -32,6 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = naviPage
         }
         window?.makeKeyAndVisible()
+        
+//        let page = OOTDUserAboutUsPage()
+//        let naviPage = UINavigationController(rootViewController: page)
+//        window?.rootViewController = naviPage
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

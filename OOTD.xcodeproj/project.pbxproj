@@ -41,6 +41,8 @@
 		1E4CB321249DD9940058689B /* WearRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB320249DD9940058689B /* WearRealmModel.swift */; };
 		1E4CB323249DF1730058689B /* WearClothesRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB322249DF1730058689B /* WearClothesRealmModel.swift */; };
 		1E4CB325249DF2810058689B /* StickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB324249DF2810058689B /* StickerViewProtocol.swift */; };
+		1E4CB327249F13BA0058689B /* OOTDUserTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB326249F13B90058689B /* OOTDUserTitleView.swift */; };
+		1E4CB329249F14A70058689B /* OOTDUserAboutUsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4CB328249F14A70058689B /* OOTDUserAboutUsPage.swift */; };
 		4F9F38AE9053E40A95464D65 /* Pods_OOTD_OOTDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */; };
 		733714F4F20DB43C985D93A6 /* Pods_OOTDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A75B3677F31482A38780B4F /* Pods_OOTDTests.framework */; };
 		DDC4AAA5500E29BC8F274221 /* Pods_OOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */; };
@@ -104,6 +106,8 @@
 		1E4CB320249DD9940058689B /* WearRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearRealmModel.swift; sourceTree = "<group>"; };
 		1E4CB322249DF1730058689B /* WearClothesRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearClothesRealmModel.swift; sourceTree = "<group>"; };
 		1E4CB324249DF2810058689B /* StickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerViewProtocol.swift; sourceTree = "<group>"; };
+		1E4CB326249F13B90058689B /* OOTDUserTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUserTitleView.swift; sourceTree = "<group>"; };
+		1E4CB328249F14A70058689B /* OOTDUserAboutUsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDUserAboutUsPage.swift; sourceTree = "<group>"; };
 		285FD89C394E0B2B9B6BD397 /* Pods-OOTDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OOTDTests.release.xcconfig"; path = "Target Support Files/Pods-OOTDTests/Pods-OOTDTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD_OOTDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,6 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				1E46FAC02499C18200631906 /* OOTDUserMainPage.swift */,
+				1E4CB326249F13B90058689B /* OOTDUserTitleView.swift */,
+				1E4CB328249F14A70058689B /* OOTDUserAboutUsPage.swift */,
 			);
 			path = userPage;
 			sourceTree = "<group>";
@@ -563,12 +569,14 @@
 				1E46FAC7249A869500631906 /* OOTDClothesTypeView.swift in Sources */,
 				1E46FA8E24997BA000631906 /* QLoginMethod.swift in Sources */,
 				1E4CB323249DF1730058689B /* WearClothesRealmModel.swift in Sources */,
+				1E4CB327249F13BA0058689B /* OOTDUserTitleView.swift in Sources */,
 				1E46FA8F24997BA000631906 /* QLoginPage.swift in Sources */,
 				1E46FA7D24997AC000631906 /* OOTDConstant.swift in Sources */,
 				1E46FA9724997BA000631906 /* File.swift in Sources */,
 				1E46FAB824997DF800631906 /* UserRealmModel.swift in Sources */,
 				1E4CB325249DF2810058689B /* StickerViewProtocol.swift in Sources */,
 				1E46FA9A24997BA000631906 /* QTextInputView.swift in Sources */,
+				1E4CB329249F14A70058689B /* OOTDUserAboutUsPage.swift in Sources */,
 				1E46FA4D24992F5A00631906 /* AppDelegate.swift in Sources */,
 				1E46FA4F24992F5A00631906 /* SceneDelegate.swift in Sources */,
 				1E46FABC24997DF800631906 /* OOTDWearMainPage.swift in Sources */,

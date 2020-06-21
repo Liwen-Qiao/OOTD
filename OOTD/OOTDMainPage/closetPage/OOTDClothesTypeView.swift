@@ -15,7 +15,7 @@ protocol ClothesTypeBtSelectedDelegate : class{
 
 class OOTDClothesTypeView: UIView {
     
-    private var iconLogoButton: UIButton!
+    var iconLogoButton: UIButton!
     private var iconLogoView: UIImageView!
     private var lebelBgView: UIView!
     private var clothesTypeLabel: UILabel!
@@ -50,7 +50,7 @@ class OOTDClothesTypeView: UIView {
         
         iconLogoButton = UIButton()
         iconLogoButton.isSelected = false
-        iconLogoButton.layer.borderColor = OOTDConstant.darkBgColor.cgColor.copy(alpha: 0.3)
+        iconLogoButton.layer.borderColor = OOTDConstant.white.cgColor.copy(alpha: 0.7)
         iconLogoButton.layer.borderWidth = 3
         iconLogoButton.layer.cornerRadius = 30
         iconLogoButton.addTarget(self, action: #selector(self.iconLogoViewnClicked(_:)), for: .touchUpInside)
@@ -112,17 +112,6 @@ class OOTDClothesTypeView: UIView {
                            completion: { finished in
                             print("Bug faced right!")
             })
-            //        UIView.animate(withDuration: 0.5,
-            //                       delay: 0.5,
-            //                       options: [.curveEaseInOut , .allowUserInteraction],
-            //                       animations: {
-            //                        sender.transform = CGAffineTransform(translationX: 40, y: 0)
-            //                        sender.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
-            //        },
-            //                       completion: { finished in
-            //                        print("Bug faced right!")
-            //        })
-            
             lebelBgView.isHidden = false
             let transition:CATransition = CATransition()
             transition.duration = 0
@@ -191,3 +180,13 @@ class OOTDClothesTypeView: UIView {
 //    }
 //
 
+//        UIView.animate(withDuration: 0.5,
+           //                       delay: 0.5,
+           //                       options: [.curveEaseInOut , .allowUserInteraction],
+           //                       animations: {
+           //                        sender.transform = CGAffineTransform(translationX: 40, y: 0)
+           //                        sender.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
+           //        },
+           //                       completion: { finished in
+           //                        print("Bug faced right!")
+           //        })
