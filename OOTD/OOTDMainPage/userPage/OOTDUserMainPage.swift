@@ -28,6 +28,11 @@ class OOTDUserMainPage: UIViewController{
         self.view.addSubview(userTitleView)
         userTitleView.easy.layout(Left(10), Right(10),Top(10), Height(270))
         
+        let logoView = QLogoView(frame: CGRect.zero, isChanged: true)
+        logoView.updateIconImageView(IconImage: #imageLiteral(resourceName: "addIcon"))
+        userTitleView.addSubview(logoView)
+        logoView.easy.layout(CenterX(0), Width(100), Height(100), Top(40))
+        
         let userSettingTableViewBg = UIView()
         userSettingTableViewBg.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.7)
         userSettingTableViewBg.layer.shadowColor = UIColor.darkGray.cgColor
@@ -36,7 +41,7 @@ class OOTDUserMainPage: UIViewController{
         userSettingTableViewBg.layer.shadowOffset = CGSize(width: 5, height: 5)
         userSettingTableViewBg.layer.shadowRadius = 15
         self.view.addSubview(userSettingTableViewBg)
-        userSettingTableViewBg.easy.layout(Left(10), Right(10),Top(15).to(userTitleView), Bottom(10))
+        userSettingTableViewBg.easy.layout(Left(10), Right(10),Top(15).to(userTitleView), Bottom(15))
         
         userSettingTableView = UITableView()
         userSettingTableView.backgroundColor = .clear
@@ -45,7 +50,7 @@ class OOTDUserMainPage: UIViewController{
         userSettingTableView.delegate = self
         userSettingTableView.dataSource = self
         userSettingTableViewBg.addSubview(userSettingTableView)
-        userSettingTableView.easy.layout(Left(10), Right(10),Top(10), Bottom(10))
+        userSettingTableView.easy.layout(Left(10), Right(10), Top(20), Bottom(20))
 
     }
     
@@ -58,14 +63,19 @@ extension OOTDUserMainPage: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userSettingTableViewCell", for: indexPath)
         cell.textLabel?.text = settingItemList[indexPath.row]
+        cell.textLabel?.font = OOTDConstant.fontNormal
         cell.accessoryType = .disclosureIndicator
         cell.layer.cornerRadius = 15
         cell.tintColor = OOTDConstant.universalColor
+        let bgView = UIView(frame: cell.frame)
+        bgView.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.2)
+        cell.clipsToBounds = true
+        cell.selectedBackgroundView = bgView
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return self.userSettingTableView.frame.height/5
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

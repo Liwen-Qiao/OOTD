@@ -31,7 +31,7 @@ class OOTDUserAboutUsPage: UIViewController {
         titleView.easy.layout(Left(10), Right(10),Top(10), Height(270))
         
         let logoView = QLogoView(frame: CGRect.zero, isChanged: false)
-        logoView.updateIconImageView(IconImage: #imageLiteral(resourceName: "OOTDLogo"))
+        logoView.updateIconImageView(IconImage: #imageLiteral(resourceName: "HighQltyLogo"))
         titleView.addSubview(logoView)
         logoView.easy.layout(CenterX(0), Width(100), Height(100), Top(40))
         
@@ -53,21 +53,22 @@ class OOTDUserAboutUsPage: UIViewController {
         aboutUsTableViewBg.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.7)
         aboutUsTableViewBg.layer.shadowColor = UIColor.darkGray.cgColor
         aboutUsTableViewBg.layer.cornerRadius = 15
-//        aboutUsTableViewBg.layer.shadowOpacity = 0.5
-//        aboutUsTableViewBg.layer.shadowOffset = CGSize(width: 5, height: 5)
-//        aboutUsTableViewBg.layer.shadowRadius = 15
+        aboutUsTableViewBg.layer.shadowOpacity = 0.2
+        aboutUsTableViewBg.layer.shadowOffset = CGSize(width: 5, height: 5)
+        aboutUsTableViewBg.layer.shadowRadius = 15
         self.view.addSubview(aboutUsTableViewBg)
-        aboutUsTableViewBg.easy.layout(Left(10), Right(10),Top(15).to(titleView), Bottom(10))
+        aboutUsTableViewBg.easy.layout(Left(10), Right(10),Top(15).to(titleView), Bottom(15))
         
         aboutUsTableView = UITableView()
         aboutUsTableView.backgroundColor = .clear
         aboutUsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "userAboutUsTableViewCell")
         aboutUsTableView.delegate = self
         aboutUsTableView.dataSource = self
+        //aboutUsTableView.separatorColor = .clear
+        aboutUsTableView.separatorStyle = .singleLine
+        aboutUsTableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
         aboutUsTableViewBg.addSubview(aboutUsTableView)
-        aboutUsTableView.easy.layout(Left(10), Right(10),Top(10), Bottom(10))
-        
-        
+        aboutUsTableView.easy.layout(Left(10), Right(10),Top(20), Bottom(40))
         
     }
     
@@ -80,13 +81,18 @@ extension OOTDUserAboutUsPage: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userAboutUsTableViewCell", for: indexPath)
         cell.textLabel?.text = aboutusItemList[indexPath.row]
+        cell.textLabel?.font = OOTDConstant.fontNormal
         cell.accessoryType = .disclosureIndicator
         cell.layer.cornerRadius = 15
+        let bgView = UIView(frame: cell.frame)
+        bgView.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.2)
+        cell.clipsToBounds = true
+        cell.selectedBackgroundView = bgView
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return self.aboutUsTableView.frame.height/4
     }
     
 }

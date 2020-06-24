@@ -103,7 +103,7 @@ class OOTDClothesTypeView: UIView {
     @objc func iconLogoViewnClicked(_ sender: UIButton){
         self.clothesTypeBtSelectedDelegate?.btClicked(viewTag: viewTag)
         if iconLogoButton.isSelected == false{
-            UIView.animate(withDuration: 1.0,
+            UIView.animate(withDuration: 0.7,
                            delay: 0.0,
                            options: [.curveEaseInOut , .allowUserInteraction],
                            animations: {
@@ -130,7 +130,7 @@ class OOTDClothesTypeView: UIView {
     
     func updateFrame(){
         if iconLogoButton.isSelected == true{
-            UIView.animate(withDuration: 1.0,
+            UIView.animate(withDuration: 0.7,
                            delay: 0.0,
                            options: [.curveEaseInOut , .allowUserInteraction],
                            animations: {
@@ -141,7 +141,7 @@ class OOTDClothesTypeView: UIView {
             })
             lebelBgView.isHidden = true
             let transition:CATransition = CATransition()
-            transition.duration = 1.0
+            transition.duration = 0.7
             transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             transition.type = CATransitionType.moveIn
             transition.subtype = CATransitionSubtype.fromRight
