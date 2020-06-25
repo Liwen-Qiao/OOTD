@@ -35,9 +35,9 @@ class OOTDUserMainPage: UIViewController{
         
         let userSettingTableViewBg = UIView()
         userSettingTableViewBg.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.7)
-        userSettingTableViewBg.layer.shadowColor = UIColor.darkGray.cgColor
+        userSettingTableViewBg.layer.shadowColor = OOTDConstant.darkUniversalColor.cgColor
         userSettingTableViewBg.layer.cornerRadius = 15
-        userSettingTableViewBg.layer.shadowOpacity = 0.5
+        userSettingTableViewBg.layer.shadowOpacity = 0.9
         userSettingTableViewBg.layer.shadowOffset = CGSize(width: 5, height: 5)
         userSettingTableViewBg.layer.shadowRadius = 15
         self.view.addSubview(userSettingTableViewBg)

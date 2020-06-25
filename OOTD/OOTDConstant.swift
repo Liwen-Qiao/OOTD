@@ -12,7 +12,9 @@ import UIKit
 struct OOTDConstant {
     
     //color
-    static let universalColor = UIColor(red: 185/225, green: 185/255, blue: 156/255, alpha: 1.0)
+    static let universalColor = #colorLiteral(red: 0.8658104539, green: 0.7707558274, blue: 0.6890796423, alpha: 1)
+    static let darkUniversalColor = #colorLiteral(red: 0.5944324136, green: 0.5641926527, blue: 0.5408225656, alpha: 1)
+        //UIColor(red: 185/225, green: 185/255, blue: 156/255, alpha: 1.0)
     static let darkBgColor = UIColor(red: 45/225, green: 38/255, blue: 33/255, alpha: 1.0)
     
     static let choosedColor = UIColor(red: 200/255, green: 255/255, blue: 166/255, alpha: 1.0)

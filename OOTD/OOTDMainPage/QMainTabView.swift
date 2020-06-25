@@ -39,7 +39,7 @@ class QMainTabView: SOTabBarController{
         navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
-        navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
         self.edgesForExtendedLayout = []
         
         let wearMainPage = OOTDWearMainPage()

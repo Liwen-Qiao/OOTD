@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E42FD2424A42BBF00DAE51D /* OOTDAddClothesItemPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42FD2324A42BBF00DAE51D /* OOTDAddClothesItemPage.swift */; };
 		1E46FA4D24992F5A00631906 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA4C24992F5A00631906 /* AppDelegate.swift */; };
 		1E46FA4F24992F5A00631906 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E46FA4E24992F5A00631906 /* SceneDelegate.swift */; };
 		1E46FA5624992F5C00631906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E46FA5524992F5C00631906 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E42FD2324A42BBF00DAE51D /* OOTDAddClothesItemPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDAddClothesItemPage.swift; sourceTree = "<group>"; };
 		1E46FA4924992F5A00631906 /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E46FA4C24992F5A00631906 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E46FA4E24992F5A00631906 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				1E46FAB024997DF800631906 /* OOTDClosetMainPage.swift */,
+				1E42FD2324A42BBF00DAE51D /* OOTDAddClothesItemPage.swift */,
 				1E46FAC6249A869500631906 /* OOTDClothesTypeView.swift */,
 				1E4B8FB3249D22EA006D9DE5 /* OOTDOneTypeClothesMainPage.swift */,
 				1E46FAC42499CFEC00631906 /* OOTDOneTypeClothesColcView.swift */,
@@ -575,6 +578,7 @@
 				1E46FA9724997BA000631906 /* File.swift in Sources */,
 				1E46FAB824997DF800631906 /* UserRealmModel.swift in Sources */,
 				1E4CB325249DF2810058689B /* StickerViewProtocol.swift in Sources */,
+				1E42FD2424A42BBF00DAE51D /* OOTDAddClothesItemPage.swift in Sources */,
 				1E46FA9A24997BA000631906 /* QTextInputView.swift in Sources */,
 				1E4CB329249F14A70058689B /* OOTDUserAboutUsPage.swift in Sources */,
 				1E46FA4D24992F5A00631906 /* AppDelegate.swift in Sources */,

@@ -20,7 +20,7 @@ class QLogoView: UIView {
         if isChanged == false{
             iconImageView.image = #imageLiteral(resourceName: "wearSelectedIcon")}
         iconImageView.clipsToBounds = true
-        iconImageView.layer.cornerRadius = 50
+        iconImageView.layer.cornerRadius = 40
         self.layer.borderColor = OOTDConstant.darkBgColor.cgColor.copy(alpha: 0.8)
         self.layer.borderWidth = 5
         self.layer.shadowColor = OOTDConstant.darkBgColor.cgColor

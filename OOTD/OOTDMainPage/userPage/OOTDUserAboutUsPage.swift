@@ -51,7 +51,7 @@ class OOTDUserAboutUsPage: UIViewController {
         
         let aboutUsTableViewBg = UIView()
         aboutUsTableViewBg.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.7)
-        aboutUsTableViewBg.layer.shadowColor = UIColor.darkGray.cgColor
+        aboutUsTableViewBg.layer.shadowColor = OOTDConstant.darkUniversalColor.cgColor
         aboutUsTableViewBg.layer.cornerRadius = 15
         aboutUsTableViewBg.layer.shadowOpacity = 0.2
         aboutUsTableViewBg.layer.shadowOffset = CGSize(width: 5, height: 5)

@@ -11,7 +11,7 @@ import EasyPeasy
 import RealmSwift
 
 class OOTDClosetMainPage: UIViewController{
-  
+    
     private var noTypeClothesView: OOTDClothesTypeView!
     private var topsClothesView: OOTDClothesTypeView!
     private var dressClothesView: OOTDClothesTypeView!
@@ -26,7 +26,20 @@ class OOTDClosetMainPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        
+        let button = UIButton()
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.alpha = 0.7
+        button.setImage(#imageLiteral(resourceName: "addClothes"), for: .normal)
+        let addButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        addButton.customView = button
+        button.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+        button.easy.layout(Left(0),Right(0), Width(40), Height(30))
+        navigationItem.setRightBarButton(addButton, animated: false)
+        
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
         let bg = UIImageView()
@@ -44,6 +57,7 @@ class OOTDClosetMainPage: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
         topsClothesView.updateFrame()
     }
     
@@ -78,25 +92,25 @@ class OOTDClosetMainPage: UIViewController{
         self.view.addSubview(dressClothesView)
         dressClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "dressIcon"), clotherType: "Dress", clotherNumber: 7)
         clothesViewList.append(dressClothesView)
-
+        
         pantsClothesView = OOTDClothesTypeView(frame: CGRect(x: 180, y: 400, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 4)
         pantsClothesView.tag = 4
         self.view.addSubview(pantsClothesView)
         pantsClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "pantsIcon"), clotherType: "Pants", clotherNumber: 7)
         clothesViewList.append(pantsClothesView)
-
+        
         shoesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 550, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 5)
         shoesView.tag = 5
         self.view.addSubview(shoesView)
         shoesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "shoesIcon"), clotherType: "Shoes", clotherNumber: 7)
         clothesViewList.append(shoesView)
-
+        
         bagsView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 450, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 6)
         bagsView.tag = 6
         self.view.addSubview(bagsView)
         bagsView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "handbagsIcon"), clotherType: "Bags", clotherNumber: 7)
         clothesViewList.append(bagsView)
-
+        
         accessoresView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 165, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 7)
         accessoresView.tag = 7
         self.view.addSubview(accessoresView)
@@ -112,11 +126,17 @@ class OOTDClosetMainPage: UIViewController{
     
     //MARK: - Gesture
     @objc func tapGesture(_ sender: UIGestureRecognizer){
-        guard let selectedViewTag = sender.self.view?.tag else { return }
+        // guard let selectedViewTag = sender.self.view?.tag else { return }
         let closetMianView = OOTDOneTypeClothesMainPage(oneTypeClothesList: nil)
         //let closetMianView = OOTDOneTypeClothesMainPage(oneTypeClothesList: [self.clothesList[selectedViewTag]])
         self.navigationController?.pushViewController(closetMianView, animated: true)
-            
+        
+    }
+    
+    //export button event
+    @objc func addButtonClicked(){
+        let newPage = OOTDAddClothesItemPage()
+        self.navigationController?.pushViewController(newPage, animated: true)
     }
 }
 

@@ -27,7 +27,11 @@ class OOTDOneTypeClothesMainPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: nil)
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
         let bg = UIImageView()
