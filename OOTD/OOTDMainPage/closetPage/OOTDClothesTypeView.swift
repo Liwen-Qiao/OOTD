@@ -83,10 +83,10 @@ class OOTDClothesTypeView: UIView {
         
         clothesNumberLabel = UILabel()
         clothesNumberLabel.textColor = OOTDConstant.white
+        clothesNumberLabel.text = "0"
         lebelBgView.addSubview(clothesNumberLabel)
         //toolBarHightLight.backgroundColor = GMConstant.cloudColor
         clothesNumberLabel.easy.layout([Bottom(15), Left(0).to(clothesLabel), Width(30), Height(15)])
-        print(self.frame)
         
     }
     
@@ -94,9 +94,12 @@ class OOTDClothesTypeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateClothesTypeView(iconLogo: UIImage, clotherType: String, clotherNumber: Int ){
+    func updateClothesTypeView(iconLogo: UIImage, clotherType: String){
         iconLogoView.image = iconLogo
         clothesTypeLabel.text = clotherType
+    }
+    
+    func updateClothesNumber(clotherNumber: Int){
         clothesNumberLabel.text = String(clotherNumber)
     }
     
@@ -110,7 +113,6 @@ class OOTDClothesTypeView: UIView {
                             sender.transform = CGAffineTransform(rotationAngle: .pi)
             },
                            completion: { finished in
-                            print("Bug faced right!")
             })
             lebelBgView.isHidden = false
             let transition:CATransition = CATransition()
@@ -121,7 +123,6 @@ class OOTDClothesTypeView: UIView {
             self.layer.add(transition, forKey: kCATransition)
             self.frame = CGRect(x: x, y: y, width: width + labelBgWidth, height: height)
             sender.isSelected = true
-            print(self.frame)
         }else {
             updateFrame()
         }
@@ -137,7 +138,6 @@ class OOTDClothesTypeView: UIView {
                             self.iconLogoButton.transform = CGAffineTransform(rotationAngle: .pi * 2.0)
             },
                            completion: { finished in
-                            print("Bug faced right!")
             })
             lebelBgView.isHidden = true
             let transition:CATransition = CATransition()

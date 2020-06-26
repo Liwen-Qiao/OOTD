@@ -17,7 +17,13 @@ class OOTDUserMainPage: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        
+        self.view.backgroundColor = UIColor.white
+        self.edgesForExtendedLayout = []
+        navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
+        navigationController?.navigationBar.tintColor = .black
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
         

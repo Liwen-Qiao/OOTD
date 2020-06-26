@@ -36,7 +36,8 @@ class OOTDOneTypeClothesMainPage: UIViewController{
         self.edgesForExtendedLayout = []
         let bg = UIImageView()
         
-        bg.image = #imageLiteral(resourceName: "OOTDLogo")
+        bg.image = #imageLiteral(resourceName: "wearBg")
+        bg.contentMode = .scaleAspectFill
         bg.adjustsImageSizeForAccessibilityContentSizeCategory = true
         self.view.addSubview(bg)
         bg.easy.layout([Edges(0)])
@@ -46,8 +47,8 @@ class OOTDOneTypeClothesMainPage: UIViewController{
     
     func setupClothesColcView(){
         oneTypeClothesColcView = OOTDOneTypeClothesColcView(frame: CGRect.zero, oneTypeClothesList: oneTypeClothesList ?? [])
-        oneTypeClothesColcView.backgroundView = UIImageView(image: #imageLiteral(resourceName: "LoginBg"))
+        oneTypeClothesColcView.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.2)
         self.view.addSubview(oneTypeClothesColcView)
-        oneTypeClothesColcView.easy.layout([Edges(0)])
+        oneTypeClothesColcView.easy.layout([Edges(10)])
     }
 }

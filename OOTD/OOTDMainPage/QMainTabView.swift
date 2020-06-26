@@ -39,10 +39,12 @@ class QMainTabView: SOTabBarController{
         navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
-        navigationController?.navigationBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
+        
+        //navigationController?.navigationBar.isHidden = true
         self.edgesForExtendedLayout = []
         
-        let wearMainPage = OOTDWearMainPage()
+        let wearMainPage = OOTDWearMainPage(wearMainPageDelegate: self)
         let closetMainPage = OOTDClosetMainPage()
         let userMainPage = OOTDUserMainPage()
         
@@ -56,6 +58,18 @@ class QMainTabView: SOTabBarController{
         userMainNavPage.tabBarItem = UITabBarItem(title: "me", image: UIImage(named: "userIcon"), selectedImage: UIImage(named: "userSelectedIcon"))
 
         viewControllers = [wearMainNavPage, closetMainNavPage, userMainNavPage]
+  
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        self.navigationController?.navigationBar.isHidden = true
+    }
+}
+
+extension QMainTabView: WearMainPageDelegate{
+    func pushToWearMainPage() {
+        let destination = OOTDEditWearPage()
+        self.navigationController?.pushViewController(destination, animated: true)
     }
 }
 

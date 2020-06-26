@@ -1,18 +1,18 @@
 //
-//  OOTDClosetMainViewCell.swift
+//  OOTDWearColcViewCell.swift
 //  OOTD
 //
-//  Created by qiaoliwen on 2020/6/17.
+//  Created by qiaoliwen on 2020/6/25.
 //  Copyright © 2020 qiaoliwen. All rights reserved.
 //
 
 import UIKit
 import EasyPeasy
 
-class OOTDClosetMainViewCell: UICollectionViewCell {
+class OOTDWearColcViewCell: UICollectionViewCell {
     
-    private var clotherTypeIconView: UIImageView!
-    private var clotherTypeLabel: UILabel!
+    private var wearIconView: UIImageView!
+    //private var clotherTypeLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,12 +28,12 @@ class OOTDClosetMainViewCell: UICollectionViewCell {
         addSubview(bgView)
         bgView.easy.layout(Edges(0))
         
-        clotherTypeIconView = UIImageView()
-        clotherTypeIconView.contentMode = .scaleAspectFill
-        bgView.addSubview(clotherTypeIconView)
-        clotherTypeIconView.layer.cornerRadius = 15
-        clotherTypeIconView.clipsToBounds = true
-        clotherTypeIconView.easy.layout(Edges(10))
+        wearIconView = UIImageView()
+        wearIconView.contentMode = .scaleAspectFill
+        bgView.addSubview(wearIconView)
+        wearIconView.layer.cornerRadius = 15
+        wearIconView.clipsToBounds = true
+        wearIconView.easy.layout(Edges(10))
 
 //        clotherTypeLabel = UILabel()
 //        addSubview(clotherTypeLabel)
@@ -43,9 +43,10 @@ class OOTDClosetMainViewCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
     
-    func updateClosetTypeViewCell(clotherModel: ClothesRealmModel){
-        clotherTypeIconView.image = QImageFile.getDocumentImage(imagePath: "\(clotherModel.clothesMainImage)/\(clotherModel.clothesMainImageType)")
+    func updateWearColcViewCell(wearModel: WearRealmModel){
+        wearIconView.image = QImageFile.getDocumentImage(imagePath: "\(wearModel.wearMainImageType)/\(wearModel.wearMainImage)")
     }
 }
+
 
 

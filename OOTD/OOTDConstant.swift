@@ -30,5 +30,14 @@ struct OOTDConstant {
     static let fontFrame = UIFont.systemFont(ofSize: 9)
     static let fontSmall = UIFont.systemFont(ofSize: 12)
     
+    static func getTimeString() -> String{
+        let dateformatter = DateFormatter()
+
+        dateformatter.dateFormat = "YYYYMMddHHmmss"
+
+        let time = dateformatter.string(from: Date())
+
+        return time
+    }
     
 }

@@ -12,10 +12,10 @@ import RealmSwift
 class WearRealmModel: Object {
     
     @objc dynamic var wearId: String = UUID().uuidString
-    @objc dynamic var clothesType: Int = 0
-    @objc dynamic var clothesSubType: Int = 0
-    @objc dynamic var clothesMainImage: String = ""
-    @objc dynamic var clothesMainImageType: String = ""
+    @objc dynamic var wearType: Int = 0
+    @objc dynamic var wearSubType: Int = 0
+    @objc dynamic var wearMainImage: String = ""
+    @objc dynamic var wearMainImageType: String = ""
     
     override static func primaryKey() -> String? {
         return "wearId"

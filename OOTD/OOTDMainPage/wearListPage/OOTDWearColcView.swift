@@ -1,35 +1,33 @@
 //
-//  OOTDOneTypeClothesColcView.swift
+//  OOTDWearColcView.swift
 //  OOTD
 //
-//  Created by qiaoliwen on 2020/6/17.
+//  Created by qiaoliwen on 2020/6/25.
 //  Copyright © 2020 qiaoliwen. All rights reserved.
 //
 
 import UIKit
+import EasyPeasy
 
-protocol OOTDClothesSelectDelegate: class {
-    func oneClothesPressed(pressedIndex: Int)
-}
 
-class OOTDOneTypeClothesColcView: UICollectionView {
+class OOTDWearColcView: UICollectionView {
     
-    private var oneTypeClothesList: [ClothesRealmModel] = []
+    private var wearList: [WearRealmModel] = []
     //delegate
     private weak var clothesTypeSelectDelegate: OOTDClothesSelectDelegate?
     
-    init(frame: CGRect, oneTypeClothesList: [ClothesRealmModel]) {
+    init(frame: CGRect, wearList: [WearRealmModel]) {
         //self.clothesTypeSelectDelegate = delegate
         
-        self.oneTypeClothesList.append(contentsOf: oneTypeClothesList)
+        self.wearList.append(contentsOf: wearList)
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = 1
-        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 25)/3, height: 200)
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 25)/2, height: (UIScreen.main.bounds.width - 25)/2)
         
         super.init(frame: frame, collectionViewLayout: layout)
-        register(OOTDClosetMainViewCell.self, forCellWithReuseIdentifier: "OOTDClosetMainViewCell")
+        register(OOTDWearColcViewCell.self, forCellWithReuseIdentifier: "OOTDWearColcViewCell")
         showsHorizontalScrollIndicator = false
         self.backgroundColor = backgroundColor
         self.delegate = self
@@ -54,14 +52,14 @@ class OOTDOneTypeClothesColcView: UICollectionView {
 //    }
 }
 
-extension OOTDOneTypeClothesColcView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension OOTDWearColcView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  oneTypeClothesList.count
+        return  wearList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDClosetMainViewCell", for: indexPath) as! OOTDClosetMainViewCell
-        cell.updateClosetTypeViewCell(clotherModel: self.oneTypeClothesList[indexPath.row])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDWearColcViewCell", for: indexPath) as! OOTDWearColcViewCell
+        cell.updateWearColcViewCell(wearModel: self.wearList[indexPath.row])
         return cell
     }
     

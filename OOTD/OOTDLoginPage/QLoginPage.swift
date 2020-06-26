@@ -54,7 +54,7 @@ class QLoginPage: UIViewController{
     func setupLogoView(){
         let logoView = UIView()
         let logoImageView = UIImageView()
-        logoImageView.image = #imageLiteral(resourceName: "OOTDLogo")
+        logoImageView.image = #imageLiteral(resourceName: "appicon")
         logoImageView.clipsToBounds = true
         logoImageView.layer.cornerRadius = 40
         logoView.layer.shadowColor = UIColor.darkGray.cgColor
