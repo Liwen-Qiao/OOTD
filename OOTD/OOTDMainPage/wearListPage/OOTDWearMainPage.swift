@@ -8,9 +8,10 @@
 
 import UIKit
 import EasyPeasy
+import RealmSwift
 
 protocol WearMainPageDelegate: class {
-    func pushToWearMainPage()
+    func pushToWearMainPage(wearRealmModel: WearRealmModel)
 }
 
 class OOTDWearMainPage: UIViewController{
@@ -67,6 +68,12 @@ class OOTDWearMainPage: UIViewController{
     }
     
     @objc func addButtonClicked(){
-        self.wearMainPageDelegate?.pushToWearMainPage()
+        let realm = try! Realm()
+        try! realm.write {
+            let newWearRealmModel = WearRealmModel(value: ["wearType": 0, "wearSubType": 0, "wearMainImage": "wearFolder", "wearMainImageType": "\(OOTDConstant.getTimeString()).png" ])
+            realm.add(newWearRealmModel, update: .modified)
+            self.wearMainPageDelegate?.pushToWearMainPage(wearRealmModel: newWearRealmModel)
+        }
+        
     }
 }

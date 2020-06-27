@@ -80,14 +80,14 @@ class QSignUpPage: UIViewController{
     
     func setupTitleView(){
         let backBt = UIButton()
-        backBt.backgroundColor = OOTDConstant.darkBgColor
-        backBt.setTitle("<<<", for: .normal)
+        backBt.backgroundColor = .clear
+        backBt.setImage(#imageLiteral(resourceName: "backBt-signIn"), for: .normal)
         backBt.setTitleColor(OOTDConstant.customColor, for: .highlighted)
         backBt.setTitleColor(OOTDConstant.universalColor, for: .normal)
         backBt.layer.cornerRadius = 10
         backBt.titleLabel?.font = UIFont(name: "MavenProbold", size: OOTDConstant.fontTitle.pointSize)
         view.addSubview(backBt)
-        backBt.easy.layout([Left(25), Height(35), Width(55),Top(40)])
+        backBt.easy.layout([Left(25), Height(35), Width(35),Top(40)])
         backBt.addTarget(self, action: #selector(back), for: .touchUpInside)
         
         let signupLabel = UILabel()

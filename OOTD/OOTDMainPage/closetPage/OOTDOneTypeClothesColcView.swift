@@ -26,7 +26,7 @@ class OOTDOneTypeClothesColcView: UICollectionView {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = 1
-        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 25)/3, height: 200)
+        layout.itemSize = CGSize(width: (UIScreen.main.bounds.width - 25)/3, height: (UIScreen.main.bounds.width - 25)/2.5)
         
         super.init(frame: frame, collectionViewLayout: layout)
         register(OOTDClosetMainViewCell.self, forCellWithReuseIdentifier: "OOTDClosetMainViewCell")

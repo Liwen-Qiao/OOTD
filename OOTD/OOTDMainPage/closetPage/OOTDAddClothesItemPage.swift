@@ -164,7 +164,7 @@ extension OOTDAddClothesItemPage: UIImagePickerControllerDelegate, UINavigationC
     }
     
     // MARK:- Image Picker Delegates
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickinOOTDediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
         self.itemImageView.updateIconImageView(IconImage: image!)
         

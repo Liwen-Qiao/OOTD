@@ -97,7 +97,7 @@ extension QUploadImageView: UIImagePickerControllerDelegate, UINavigationControl
     }
     
     // MARK:- Image Picker Delegates
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickinOOTDediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
         //self.imagePreview.image = image
         dismiss(animated: true, completion: nil)

@@ -37,7 +37,7 @@ class OOTDWearColcViewCell: UICollectionViewCell {
 
 //        clotherTypeLabel = UILabel()
 //        addSubview(clotherTypeLabel)
-//        //toolBarHightLight.backgroundColor = GMConstant.cloudColor
+//        //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
 //        clotherTypeLabel.easy.layout([Bottom(0),Left(0),Right(0),Height(5)])
     }
     

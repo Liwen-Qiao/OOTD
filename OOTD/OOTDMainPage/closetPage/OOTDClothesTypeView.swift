@@ -63,7 +63,7 @@ class OOTDClothesTypeView: UIView {
         
         lebelBgView = UIView()
         addSubview(lebelBgView)
-        //toolBarHightLight.backgroundColor = GMConstant.cloudColor
+        //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
         lebelBgView.easy.layout([Top(0), Right(0), Bottom(0), Width(self.labelBgWidth)])
         lebelBgView.isHidden = true
         
@@ -71,7 +71,7 @@ class OOTDClothesTypeView: UIView {
         clothesTypeLabel.textColor = OOTDConstant.white
         clothesTypeLabel.font = OOTDConstant.fontNormal
         lebelBgView.addSubview(clothesTypeLabel)
-        //toolBarHightLight.backgroundColor = GMConstant.cloudColor
+        //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
         clothesTypeLabel.easy.layout([Top(12), Left(10), Right(0), Height(20)])
         
         let clothesLabel = UILabel()
@@ -85,7 +85,7 @@ class OOTDClothesTypeView: UIView {
         clothesNumberLabel.textColor = OOTDConstant.white
         clothesNumberLabel.text = "0"
         lebelBgView.addSubview(clothesNumberLabel)
-        //toolBarHightLight.backgroundColor = GMConstant.cloudColor
+        //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
         clothesNumberLabel.easy.layout([Bottom(15), Left(0).to(clothesLabel), Width(30), Height(15)])
         
     }

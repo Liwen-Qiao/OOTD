@@ -20,6 +20,8 @@ class WearRealmModel: Object {
     override static func primaryKey() -> String? {
         return "wearId"
     }
+    
+    
 }
 
 

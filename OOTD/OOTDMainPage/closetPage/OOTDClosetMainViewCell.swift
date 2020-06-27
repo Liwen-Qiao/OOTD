@@ -37,14 +37,14 @@ class OOTDClosetMainViewCell: UICollectionViewCell {
 
 //        clotherTypeLabel = UILabel()
 //        addSubview(clotherTypeLabel)
-//        //toolBarHightLight.backgroundColor = GMConstant.cloudColor
+//        //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
 //        clotherTypeLabel.easy.layout([Bottom(0),Left(0),Right(0),Height(5)])
     }
     
     required init?(coder aDecoder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
     
     func updateClosetTypeViewCell(clotherModel: ClothesRealmModel){
-        clotherTypeIconView.image = QImageFile.getDocumentImage(imagePath: "\(clotherModel.clothesMainImage)/\(clotherModel.clothesMainImageType)")
+        clotherTypeIconView.image = QImageFile.getDocumentImage(imagePath: "\(clotherModel.clothesMainImageType)/\(clotherModel.clothesMainImage)")
     }
 }
 

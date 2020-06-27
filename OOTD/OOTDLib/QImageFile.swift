@@ -37,7 +37,7 @@ struct QImageFile {
         do {
             image = UIImage(data: try Data(contentsOf: FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(imagePath)))
         } catch {
-            print("Error loading GMStickerView image : \(error)")
+            print("Error loading OOTDStickerView image : \(error)")
         }
         return image
     }
