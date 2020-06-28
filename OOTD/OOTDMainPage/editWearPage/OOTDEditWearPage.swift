@@ -24,7 +24,7 @@ class OOTDEditWearPage: UIViewController {
     //data
     private var wearRealmModel : WearRealmModel
 
-    private var clothesList: [[ClothesRealmModel]] = []
+    private var clothesList: [[[ClothesRealmModel]]] = []
     
     init(wearRealmModel: WearRealmModel){
         self.wearRealmModel = wearRealmModel

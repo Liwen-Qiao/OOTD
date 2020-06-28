@@ -14,16 +14,16 @@ class OOTDClosetView: UIView {
     
     //view
     private var clothesToolBar: OOTDIconToolBar!
-    private var clothesPager: OOTDClothesPager!
+    private var closetTypePager: OOTDClosetTypePager!
     
     //data
    // private var toolBarItemList: [OOTDIconToolBarModel] = []
-    private var clothesItemList: [[ClothesRealmModel]] = []
+    private var clothesItemList: [[[ClothesRealmModel]]] = []
        
     //delegate
     private weak var clothesItemSelectDelegate: OOTDClothesItemSelectDelegate?
     
-    init(frame: CGRect, toolBarItemList: [OOTDIconToolBarModel], clothesItemList: [[ClothesRealmModel]],
+    init(frame: CGRect, toolBarItemList: [OOTDIconToolBarModel], clothesItemList: [[[ClothesRealmModel]]],
          delegate: OOTDClothesItemSelectDelegate, clothesPagerCellHeight: CGFloat){
         
         super.init(frame: frame)
@@ -49,27 +49,27 @@ class OOTDClosetView: UIView {
         
 
         
-        clothesPager = OOTDClothesPager(frame: CGRect.zero, cellWidth : UIScreen.main.bounds.width,
-                                        cellHeight: clothesPagerCellHeight,
-                                        clothes2DList: self.clothesItemList, delegate: delegate)
-        self.addSubview(clothesPager)
-        //clothesPager.easy.layout([Left(0), Right(0), Top(0).to(clothesToolBar), Bottom(0)])
-        clothesPager.reloadData()
+//        closetTypePager = OOTDClosetTypePager()
+////        //(frame: CGRect.zero, cellWidth : UIScreen.main.bounds.width,
+////                                        cellHeight: clothesPagerCellHeight,
+////                                        clothes2DList: self.clothesItemList, delegate: delegate)
+//        self.addSubview(closetTypePager)
+//        closetTypePager.easy.layout([Left(0), Right(0), Top(0).to(clothesToolBar), Bottom(0)])
+//        closetTypePager.reloadData()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateTileclothesData(clothesItemList: [[ClothesRealmModel]]){
-        self.clothesPager.updateclothes2DList(clothes2DList: clothesItemList)
+    func updateTileclothesData(clothesItemList: [[[ClothesRealmModel]]]){
+        //self.closetTypePager.updateclothes2DList(clothes2DList: clothesItemList)
     }
 }
 
 extension OOTDClosetView: OOTDIconBarItemSelectedDelegate {
     func oneIconBarItemCellPressed(pressedIndex: Int, viewTag: String) {
         let indexPath = IndexPath(row: pressedIndex, section: 0)
-        
-        self.clothesPager.scrollToItem(at: indexPath, at: .left, animated: true)
+        self.closetTypePager.scrollToItem(at: indexPath, at: .left, animated: true)
     }
 }

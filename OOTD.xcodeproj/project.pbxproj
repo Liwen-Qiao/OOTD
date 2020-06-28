@@ -51,7 +51,7 @@
 		1E67906A24A7166300937631 /* OOTDLayerEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906824A7166300937631 /* OOTDLayerEditCell.swift */; };
 		1E67907124A71A3800937631 /* OOTDClothesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906B24A71A3800937631 /* OOTDClothesGridCell.swift */; };
 		1E67907224A71A3800937631 /* OOTDClothesPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906C24A71A3800937631 /* OOTDClothesPagerCell.swift */; };
-		1E67907324A71A3800937631 /* OOTDClothesPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906D24A71A3800937631 /* OOTDClothesPager.swift */; };
+		1E67907324A71A3800937631 /* OOTDClosetSubTypePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906D24A71A3800937631 /* OOTDClosetSubTypePager.swift */; };
 		1E67907524A71A3800937631 /* OOTDClosetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906F24A71A3800937631 /* OOTDClosetView.swift */; };
 		1E67907F24A71F9F00937631 /* OOTDIconToolBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67907924A71F9F00937631 /* OOTDIconToolBarCell.swift */; };
 		1E67908024A71F9F00937631 /* OOTDTextToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67907A24A71F9F00937631 /* OOTDTextToolBar.swift */; };
@@ -61,6 +61,7 @@
 		1E67908424A71F9F00937631 /* OOTDIconToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67907E24A71F9F00937631 /* OOTDIconToolBar.swift */; };
 		1E67908624A7284500937631 /* OOTDClothesImageEditArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67908524A7284500937631 /* OOTDClothesImageEditArea.swift */; };
 		1E67908A24A7291300937631 /* OOTDStickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67908924A7291300937631 /* OOTDStickerView.swift */; };
+		1E67908C24A86E5200937631 /* OOTDClosetTypePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67908B24A86E5200937631 /* OOTDClosetTypePager.swift */; };
 		4F9F38AE9053E40A95464D65 /* Pods_OOTD_OOTDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */; };
 		733714F4F20DB43C985D93A6 /* Pods_OOTDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A75B3677F31482A38780B4F /* Pods_OOTDTests.framework */; };
 		DDC4AAA5500E29BC8F274221 /* Pods_OOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */; };
@@ -134,7 +135,7 @@
 		1E67906824A7166300937631 /* OOTDLayerEditCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDLayerEditCell.swift; sourceTree = "<group>"; };
 		1E67906B24A71A3800937631 /* OOTDClothesGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClothesGridCell.swift; sourceTree = "<group>"; };
 		1E67906C24A71A3800937631 /* OOTDClothesPagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClothesPagerCell.swift; sourceTree = "<group>"; };
-		1E67906D24A71A3800937631 /* OOTDClothesPager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClothesPager.swift; sourceTree = "<group>"; };
+		1E67906D24A71A3800937631 /* OOTDClosetSubTypePager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClosetSubTypePager.swift; sourceTree = "<group>"; };
 		1E67906F24A71A3800937631 /* OOTDClosetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClosetView.swift; sourceTree = "<group>"; };
 		1E67907924A71F9F00937631 /* OOTDIconToolBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDIconToolBarCell.swift; sourceTree = "<group>"; };
 		1E67907A24A71F9F00937631 /* OOTDTextToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDTextToolBar.swift; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 		1E67907E24A71F9F00937631 /* OOTDIconToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDIconToolBar.swift; sourceTree = "<group>"; };
 		1E67908524A7284500937631 /* OOTDClothesImageEditArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClothesImageEditArea.swift; sourceTree = "<group>"; };
 		1E67908924A7291300937631 /* OOTDStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDStickerView.swift; sourceTree = "<group>"; };
+		1E67908B24A86E5200937631 /* OOTDClosetTypePager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClosetTypePager.swift; sourceTree = "<group>"; };
 		285FD89C394E0B2B9B6BD397 /* Pods-OOTDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OOTDTests.release.xcconfig"; path = "Target Support Files/Pods-OOTDTests/Pods-OOTDTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD_OOTDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,7 +355,8 @@
 				1E67906724A7166300937631 /* OOTDLayerEditPage.swift */,
 				1E67906824A7166300937631 /* OOTDLayerEditCell.swift */,
 				1E67906F24A71A3800937631 /* OOTDClosetView.swift */,
-				1E67906D24A71A3800937631 /* OOTDClothesPager.swift */,
+				1E67908B24A86E5200937631 /* OOTDClosetTypePager.swift */,
+				1E67906D24A71A3800937631 /* OOTDClosetSubTypePager.swift */,
 				1E67906C24A71A3800937631 /* OOTDClothesPagerCell.swift */,
 				1E67906B24A71A3800937631 /* OOTDClothesGridCell.swift */,
 			);
@@ -656,6 +659,7 @@
 				1E46FAC7249A869500631906 /* OOTDClothesTypeView.swift in Sources */,
 				1E67908124A71F9F00937631 /* OOTDTextToolBarCell.swift in Sources */,
 				1E42FD2624A5433600DAE51D /* OOTDWearColcView.swift in Sources */,
+				1E67908C24A86E5200937631 /* OOTDClosetTypePager.swift in Sources */,
 				1E67906A24A7166300937631 /* OOTDLayerEditCell.swift in Sources */,
 				1E46FA8E24997BA000631906 /* QLoginMethod.swift in Sources */,
 				1E4CB323249DF1730058689B /* WearClothesRealmModel.swift in Sources */,
@@ -671,7 +675,7 @@
 				1E67907224A71A3800937631 /* OOTDClothesPagerCell.swift in Sources */,
 				1E4CB329249F14A70058689B /* OOTDUserAboutUsPage.swift in Sources */,
 				1E46FA4D24992F5A00631906 /* AppDelegate.swift in Sources */,
-				1E67907324A71A3800937631 /* OOTDClothesPager.swift in Sources */,
+				1E67907324A71A3800937631 /* OOTDClosetSubTypePager.swift in Sources */,
 				1E67907524A71A3800937631 /* OOTDClosetView.swift in Sources */,
 				1E46FA4F24992F5A00631906 /* SceneDelegate.swift in Sources */,
 				1E46FABC24997DF800631906 /* OOTDWearMainPage.swift in Sources */,
