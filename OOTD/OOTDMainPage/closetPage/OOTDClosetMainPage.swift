@@ -65,12 +65,13 @@ class OOTDClosetMainPage: UIViewController{
         let realm = try! Realm()
         //let predicate = NSPredicate(format: "userEmail = %@", email)
         let theClothesList = realm.objects(ClothesRealmModel.self)
+        print("OOTDEditWearPage theClothesList\(theClothesList)")
         var theClothesArrayList : [ClothesRealmModel] = []
         theClothesArrayList.append(contentsOf: theClothesList)
         //self.clothesList.append(contentsOf: theClothesList)
-        
+        print("OOTDEditWearPage theClothesArrayList\(theClothesArrayList)")
         self.clothesList = ClothesRealmModel.classifyClothesByType(clothesList: theClothesArrayList, clothesType: [0,1,2,3,4,5,6,7])
-        
+        print("OOTDEditWearPage\(clothesList)")
         for clothesView in clothesViewList{
             for (index, clothes) in clothesList.enumerated(){
                 if clothesView.tag == index{
@@ -81,45 +82,45 @@ class OOTDClosetMainPage: UIViewController{
     }
     
     func setupClosetMainView(){
-        noTypeClothesView = OOTDClothesTypeView(frame: CGRect(x: 50, y: 20, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 1)
-        noTypeClothesView.tag = 1
+        noTypeClothesView = OOTDClothesTypeView(frame: CGRect(x: 50, y: 20, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 0)
+        noTypeClothesView.tag = 0
         self.view.addSubview(noTypeClothesView)
         noTypeClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "noTypeIcon"), clotherType: "No Category")
         clothesViewList.append(noTypeClothesView)
         noTypeClothesView.iconLogoViewnClicked(noTypeClothesView.iconLogoButton)
         
-        topsClothesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 100, width: 60, height: 60), labelBgWidth: 80, delegate: self, tag: 2)
-        topsClothesView.tag = 2
+        topsClothesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 100, width: 60, height: 60), labelBgWidth: 80, delegate: self, tag: 1)
+        topsClothesView.tag = 1
         self.view.addSubview(topsClothesView)
         topsClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "wearIcon"), clotherType: "Top")
         clothesViewList.append(topsClothesView)
         
-        dressClothesView = OOTDClothesTypeView(frame: CGRect(x: 180, y: 250, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 3)
-        dressClothesView.tag = 3
+        dressClothesView = OOTDClothesTypeView(frame: CGRect(x: 180, y: 250, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 2)
+        dressClothesView.tag = 2
         self.view.addSubview(dressClothesView)
         dressClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "dressIcon"), clotherType: "Dress")
         clothesViewList.append(dressClothesView)
         
-        pantsClothesView = OOTDClothesTypeView(frame: CGRect(x: 180, y: 400, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 4)
-        pantsClothesView.tag = 4
+        pantsClothesView = OOTDClothesTypeView(frame: CGRect(x: 180, y: 400, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 3)
+        pantsClothesView.tag = 3
         self.view.addSubview(pantsClothesView)
         pantsClothesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "pantsIcon"), clotherType: "Pants")
         clothesViewList.append(pantsClothesView)
         
-        shoesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 550, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 5)
-        shoesView.tag = 5
+        shoesView = OOTDClothesTypeView(frame: CGRect(x: 240, y: 550, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 4)
+        shoesView.tag = 4
         self.view.addSubview(shoesView)
         shoesView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "shoesIcon"), clotherType: "Shoes")
         clothesViewList.append(shoesView)
         
-        bagsView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 450, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 6)
-        bagsView.tag = 6
+        bagsView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 450, width: 60, height: 60), labelBgWidth: 90, delegate: self, tag: 5)
+        bagsView.tag = 5
         self.view.addSubview(bagsView)
         bagsView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "handbagsIcon"), clotherType: "Bags")
         clothesViewList.append(bagsView)
         
-        accessoresView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 165, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 7)
-        accessoresView.tag = 7
+        accessoresView = OOTDClothesTypeView(frame: CGRect(x: 30, y: 165, width: 60, height: 60), labelBgWidth: 130, delegate: self, tag: 6)
+        accessoresView.tag = 6
         self.view.addSubview(accessoresView)
         accessoresView.updateClothesTypeView(iconLogo: #imageLiteral(resourceName: "accessoriesIcon"), clotherType: "Accessores")
         clothesViewList.append(accessoresView)

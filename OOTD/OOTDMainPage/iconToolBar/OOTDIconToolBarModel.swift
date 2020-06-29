@@ -21,8 +21,8 @@ struct OOTDIconToolBarModel {
             ["toolBarItemLocalImage": "noTypeIcon"],
             ["toolBarItemLocalImage": "wearIcon"],
             ["toolBarItemLocalImage": "pantsIcon"],
-            ["toolBarItemLocalImage": "handbagsIcon"],
             ["toolBarItemLocalImage": "dressIcon"],
+            ["toolBarItemLocalImage": "handbagsIcon"],
             ["toolBarItemLocalImage": "shoesIcon"],
             ["toolBarItemLocalImage": "accessoriesIcon"]
         ]

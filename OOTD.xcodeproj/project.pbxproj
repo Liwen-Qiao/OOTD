@@ -51,7 +51,7 @@
 		1E67906A24A7166300937631 /* OOTDLayerEditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906824A7166300937631 /* OOTDLayerEditCell.swift */; };
 		1E67907124A71A3800937631 /* OOTDClothesGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906B24A71A3800937631 /* OOTDClothesGridCell.swift */; };
 		1E67907224A71A3800937631 /* OOTDClothesPagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906C24A71A3800937631 /* OOTDClothesPagerCell.swift */; };
-		1E67907324A71A3800937631 /* OOTDClosetSubTypePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906D24A71A3800937631 /* OOTDClosetSubTypePager.swift */; };
+		1E67907324A71A3800937631 /* OOTDClosetSubTypePagerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906D24A71A3800937631 /* OOTDClosetSubTypePagerCell.swift */; };
 		1E67907524A71A3800937631 /* OOTDClosetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67906F24A71A3800937631 /* OOTDClosetView.swift */; };
 		1E67907F24A71F9F00937631 /* OOTDIconToolBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67907924A71F9F00937631 /* OOTDIconToolBarCell.swift */; };
 		1E67908024A71F9F00937631 /* OOTDTextToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67907A24A71F9F00937631 /* OOTDTextToolBar.swift */; };
@@ -135,7 +135,7 @@
 		1E67906824A7166300937631 /* OOTDLayerEditCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDLayerEditCell.swift; sourceTree = "<group>"; };
 		1E67906B24A71A3800937631 /* OOTDClothesGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClothesGridCell.swift; sourceTree = "<group>"; };
 		1E67906C24A71A3800937631 /* OOTDClothesPagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClothesPagerCell.swift; sourceTree = "<group>"; };
-		1E67906D24A71A3800937631 /* OOTDClosetSubTypePager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClosetSubTypePager.swift; sourceTree = "<group>"; };
+		1E67906D24A71A3800937631 /* OOTDClosetSubTypePagerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClosetSubTypePagerCell.swift; sourceTree = "<group>"; };
 		1E67906F24A71A3800937631 /* OOTDClosetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDClosetView.swift; sourceTree = "<group>"; };
 		1E67907924A71F9F00937631 /* OOTDIconToolBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDIconToolBarCell.swift; sourceTree = "<group>"; };
 		1E67907A24A71F9F00937631 /* OOTDTextToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OOTDTextToolBar.swift; sourceTree = "<group>"; };
@@ -356,7 +356,7 @@
 				1E67906824A7166300937631 /* OOTDLayerEditCell.swift */,
 				1E67906F24A71A3800937631 /* OOTDClosetView.swift */,
 				1E67908B24A86E5200937631 /* OOTDClosetTypePager.swift */,
-				1E67906D24A71A3800937631 /* OOTDClosetSubTypePager.swift */,
+				1E67906D24A71A3800937631 /* OOTDClosetSubTypePagerCell.swift */,
 				1E67906C24A71A3800937631 /* OOTDClothesPagerCell.swift */,
 				1E67906B24A71A3800937631 /* OOTDClothesGridCell.swift */,
 			);
@@ -675,7 +675,7 @@
 				1E67907224A71A3800937631 /* OOTDClothesPagerCell.swift in Sources */,
 				1E4CB329249F14A70058689B /* OOTDUserAboutUsPage.swift in Sources */,
 				1E46FA4D24992F5A00631906 /* AppDelegate.swift in Sources */,
-				1E67907324A71A3800937631 /* OOTDClosetSubTypePager.swift in Sources */,
+				1E67907324A71A3800937631 /* OOTDClosetSubTypePagerCell.swift in Sources */,
 				1E67907524A71A3800937631 /* OOTDClosetView.swift in Sources */,
 				1E46FA4F24992F5A00631906 /* SceneDelegate.swift in Sources */,
 				1E46FABC24997DF800631906 /* OOTDWearMainPage.swift in Sources */,

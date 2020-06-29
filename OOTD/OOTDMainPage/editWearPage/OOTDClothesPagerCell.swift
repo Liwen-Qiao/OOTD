@@ -28,9 +28,10 @@ class OOTDClothesPagerCell: UICollectionViewCell {
         super.init(frame: frame)
         
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 50, height:50)
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.itemSize = CGSize(width: 60, height:60)
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
         
         clothesCollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         clothesCollectionView.register(OOTDClothesGridCell.self, forCellWithReuseIdentifier: "OOTDClothesGridCell")
@@ -56,25 +57,17 @@ class OOTDClothesPagerCell: UICollectionViewCell {
 
 extension OOTDClothesPagerCell: UICollectionViewDataSource, UICollectionViewDelegate{ 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return clothes1DList.count + 1
+        return clothes1DList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDClothesGridCell", for: indexPath) as! OOTDClothesGridCell
-        if indexPath.row == 0{
-            cell.createdAddButton()
-        }else if indexPath.row != 0{
-            cell.updateGridCell(clothesModel: clothes1DList[indexPath.row - 1])
-        }
+            cell.updateGridCell(clothesModel: clothes1DList[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0{
-            clothesItemSelectDelegate?.addButtonPressed()
-        }else {
-            clothesItemSelectDelegate?.oneClothesItemPressed(clothesInfo: clothes1DList[indexPath.row - 1])
-        }
+            clothesItemSelectDelegate?.oneClothesItemPressed(clothesInfo: clothes1DList[indexPath.row])
     }
 }
 

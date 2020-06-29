@@ -14,22 +14,27 @@ class OOTDClosetTypePager: UICollectionView {
     
     //data
     private var clothesItemList: [[[ClothesRealmModel]]] = []
-       
+    private var toolBarItemList: [[OOTDTextToolBarModel]] = []
+    
     //delegate
     private weak var clothesItemSelectDelegate: OOTDClothesItemSelectDelegate?
     
-    init(frame: CGRect, toolBarItemList: [OOTDTextToolBarModel], clothesItemList: [[[ClothesRealmModel]]],
-         delegate: OOTDClothesItemSelectDelegate, clothesPagerCellHeight: CGFloat){
+    init(frame: CGRect, toolBarItemList: [[OOTDTextToolBarModel]], clothesItemList: [[[ClothesRealmModel]]], delegate: OOTDClothesItemSelectDelegate){
+        
+        self.toolBarItemList = toolBarItemList
+        self.clothesItemList = clothesItemList
+        print("OOTDClosetTypePager, clothesItemList \(clothesItemList)")
+        self.clothesItemSelectDelegate = delegate
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
         layout.minimumLineSpacing = 1
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 120)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 135)
         
         super.init(frame: frame, collectionViewLayout: layout)
         self.backgroundColor = OOTDConstant.cloudColor
-        self.register(OOTDClosetSubTypePager.self, forCellWithReuseIdentifier: "OOTDClosetSubTypePager")
+        self.register(OOTDClosetSubTypePagerCell.self, forCellWithReuseIdentifier: "OOTDClosetSubTypePagerCell")
         self.showsHorizontalScrollIndicator = false
         self.automaticallyAdjustsScrollIndicatorInsets = false
         self.isPagingEnabled = true
@@ -41,10 +46,10 @@ class OOTDClosetTypePager: UICollectionView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateclothes3DList(clothes3DList: [[[ClothesRealmModel]]]){
-         self.clothesItemList = clothes3DList
-         self.reloadData()
-     }
+    func updatecClothes3DList(clothes3DList: [[[ClothesRealmModel]]]){
+        self.clothesItemList = clothes3DList
+        self.reloadData()
+    }
 }
 
 //extension OOTDClosetTypePager: OOTDIconBarItemSelectedDelegate {
@@ -62,15 +67,15 @@ extension OOTDClosetTypePager: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDClosetSubTypePager", for: indexPath) as! OOTDClosetSubTypePager
-        if let degegate = self.clothesItemSelectDelegate{ //toLearn:
-            cell.updateclothes2DList(clothesItemList: clothesItemList[indexPath.row])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDClosetSubTypePagerCell", for: indexPath) as! OOTDClosetSubTypePagerCell
+        if let degegate = self.clothesItemSelectDelegate{
+            cell.updateclothes2DList(clothesItemList: clothesItemList[indexPath.row], delegate: degegate, toolBarItemList: self.toolBarItemList[indexPath.row])
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      
+        
     }
 }
 

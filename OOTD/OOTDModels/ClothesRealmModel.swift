@@ -31,14 +31,45 @@ class ClothesRealmModel: Object {
         }
         for clothes in clothesList {
             for (index, clothesOneType) in clothesType.enumerated(){
-                if clothes.clothesType == clothesOneType - 1 {
-                var oneTypeDataList = classifiedArray[index] //这里要求，type的类型恰巧和分类数组的index正好相同
-                oneTypeDataList.append(clothes)
-                classifiedArray[index] = oneTypeDataList
-            }
+                if clothes.clothesType == clothesOneType{
+                    var oneTypeDataList = classifiedArray[index]
+                    oneTypeDataList.append(clothes)
+                    classifiedArray[index] = oneTypeDataList
+                }
             }
         }
         return classifiedArray
+    }
+    
+    static func classifyClothesByType(clothesList: [ClothesRealmModel]) -> [[[ClothesRealmModel]]] {
+        
+        let clothesType = [[0,1],[0,1,2,3,4,5],[0,1,2,3,4],[0,1,2,3,4,5],[0,1,2,3,4,5,6],[0,1,2,3,4],[0,1,2,3,4,5]]
+        var classified3DArray: [[[ClothesRealmModel]]]  = []
+        
+        let clothesTypeCount = clothesType.count
+        
+        for int in 0 ..< clothesTypeCount {
+            var oneTypeDataList: [[ClothesRealmModel]] = []
+            for _ in clothesType[int]{
+                let oneSubTypeDataList: [ClothesRealmModel] = []
+                oneTypeDataList.append(oneSubTypeDataList)
+            }
+            classified3DArray.append(oneTypeDataList)
+        }
+        for clothes in clothesList {
+            for (index, clothesOneType) in clothesType.enumerated(){
+                if clothes.clothesType == index{
+                    for (subIndex, clothesOneSubType) in clothesOneType.enumerated(){
+                        if clothes.clothesSubType == clothesOneSubType{
+                            var oneTypeDataList = classified3DArray[index][subIndex]
+                            oneTypeDataList.append(clothes)
+                            classified3DArray[index][subIndex] = oneTypeDataList
+                        }
+                    }
+                }
+            }
+        }
+        return classified3DArray
     }
 }
 

@@ -75,13 +75,14 @@ class OOTDUserAboutUsPage: UIViewController {
 }
 extension OOTDUserAboutUsPage: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
+       return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userAboutUsTableViewCell", for: indexPath)
         cell.textLabel?.text = aboutusItemList[indexPath.row]
         cell.textLabel?.font = OOTDConstant.fontNormal
+        cell.backgroundColor = .white
         cell.accessoryType = .disclosureIndicator
         cell.layer.cornerRadius = 15
         let bgView = UIView(frame: cell.frame)

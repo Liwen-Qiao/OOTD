@@ -9,7 +9,7 @@
 import UIKit
 
 protocol OOTDIconBarItemSelectedDelegate: class {
-    func oneIconBarItemCellPressed(pressedIndex: Int, viewTag: String)
+    func oneIconBarItemCellPressed(pressedIndex: Int)
 }
 
 class OOTDIconToolBar: UICollectionView {
@@ -79,10 +79,9 @@ extension OOTDIconToolBar: UICollectionViewDataSource, UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //let toolbarImageUrl = toolBarItemList[indexPath.row].toolBarItemLocalImage
-        clothesIconBarItemSelectDelegate?.oneIconBarItemCellPressed(pressedIndex: indexPath.row, viewTag: iconToolBarViewTag)
-        
-        //print("\(toolBarType)的\(indexPath)")
+        clothesIconBarItemSelectDelegate?.oneIconBarItemCellPressed(pressedIndex: indexPath.row)
     }
+    
+    
 }
 

@@ -16,17 +16,14 @@ class OOTDClothesGridCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             self.layer.borderWidth = isSelected ? 3 : 0.5
-            self.layer.borderColor = isSelected ? OOTDConstant.universalColor.cgColor : OOTDConstant.cloudColor.cgColor
+            self.layer.borderColor = isSelected ? OOTDConstant.darkBgColor.cgColor : OOTDConstant.cloudColor.cgColor
         }
-    }
-    
-    func createdAddButton(){
-        imageView.image = #imageLiteral(resourceName: "addResource")
-        //imageView.easy.layout(Edges(10))
     }
     
     func updateGridCell(clothesModel: ClothesRealmModel){
         imageView.image = QImageFile.getDocumentImage(imagePath: "\(clothesModel.clothesMainImageType)/\(clothesModel.clothesMainImage)")
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
     }
 
     func loadImage(fileName: URL) -> UIImage? {

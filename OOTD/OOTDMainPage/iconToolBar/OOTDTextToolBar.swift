@@ -11,7 +11,7 @@ import UIKit
 import EasyPeasy
 
 protocol OOTDTextBarItemSelectDelegate: class {
-    func oneTextBarItemCellPressed(pressedIndex: Int, viewTag: String)
+    func oneTextBarItemCellPressed(pressedIndex: Int)
 }
 
 class OOTDTextToolBar: UICollectionView {
@@ -37,26 +37,36 @@ class OOTDTextToolBar: UICollectionView {
         self.mapTextBarItemSelectDelegate = delegate
 
         let layout = UICollectionViewFlowLayout()
-        layout.minimumInteritemSpacing = 1
-        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         
         super.init(frame: frame, collectionViewLayout: layout)
         self.register(OOTDTextToolBarCell.self, forCellWithReuseIdentifier: "OOTDTextToolBarCell")
         self.showsHorizontalScrollIndicator = false
-        self.automaticallyAdjustsScrollIndicatorInsets = false
+        //self.automaticallyAdjustsScrollIndicatorInsets = false
         self.delegate = self
         self.dataSource = self
         
+        self.layer.borderColor = OOTDConstant.universalColor.cgColor
+        self.layer.borderWidth = 1
+        
         self.toolBarItemList.append(contentsOf: toolBarItemList)
         
-        let defaultSelectCell = IndexPath(row: 0, section: 0)
-        self.selectItem(at: defaultSelectCell, animated: true, scrollPosition: .left)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateToolBarItemList(toolBarItemList: [OOTDTextToolBarModel]){
+        self.toolBarItemList.removeAll()
+        self.toolBarItemList.append(contentsOf: toolBarItemList)
+        self.reloadData()
+        let defaultSelectCell = IndexPath(row: 0, section: 0)
+        self.selectItem(at: defaultSelectCell, animated: true, scrollPosition: .left)
     }
 }
 
@@ -67,12 +77,14 @@ extension OOTDTextToolBar: UICollectionViewDataSource, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDTextToolBarCell", for: indexPath) as! OOTDTextToolBarCell
-        cell.updateTextToolBarCell(toolBarItem: toolBarItemList[indexPath.row], textColor: self.cellTextColor,
-                                   backgroundColor : self.cellBgColor, highlightColor: self.cellHighlightColor)
+        cell.updateTextToolBarCell(toolBarItem: toolBarItemList[indexPath.row],
+                                   textColor: self.cellTextColor,
+                                   backgroundColor : self.cellBgColor,
+                                   highlightColor: self.cellHighlightColor)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        mapTextBarItemSelectDelegate?.oneTextBarItemCellPressed(pressedIndex: indexPath.row, viewTag: self.textToolBarViewTag )
+        mapTextBarItemSelectDelegate?.oneTextBarItemCellPressed(pressedIndex: indexPath.row)
     }
 }
