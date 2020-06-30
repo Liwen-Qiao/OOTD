@@ -12,7 +12,6 @@ import EasyPeasy
 
 protocol OOTDClothesItemSelectDelegate : class {
     func oneClothesItemPressed(clothesInfo: ClothesRealmModel)
-    func addButtonPressed()
 }
 
 class OOTDClothesPagerCell: UICollectionViewCell {

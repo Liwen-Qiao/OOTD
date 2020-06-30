@@ -67,7 +67,7 @@ class QMainTabView: SOTabBarController{
 }
 
 extension QMainTabView: WearMainPageDelegate{
-    func pushToWearMainPage(wearRealmModel: WearRealmModel) {
+    func pushToWearMainPage(wearRealmModel: WearRealmModel?) {
         let destination = OOTDEditWearPage(wearRealmModel: wearRealmModel)
         self.navigationController?.pushViewController(destination, animated: true)
     }

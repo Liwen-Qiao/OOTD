@@ -23,11 +23,11 @@ class QLogoView: UIView {
         iconImageView.layer.cornerRadius = 40
         self.layer.borderColor = OOTDConstant.darkBgColor.cgColor.copy(alpha: 0.8)
         self.layer.borderWidth = 5
-        self.layer.shadowColor = OOTDConstant.darkBgColor.cgColor
         self.layer.cornerRadius = 50
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowOffset = CGSize(width: 5, height: 5)
-        self.layer.shadowRadius = 15
+        //self.layer.shadowColor = OOTDConstant.darkBgColor.cgColor
+//        self.layer.shadowOpacity = 0.5
+//        self.layer.shadowOffset = CGSize(width: 5, height: 5)
+//        self.layer.shadowRadius = 15
         self.addSubview(iconImageView)
         iconImageView.easy.layout(Edges(10))
         self.easy.layout([Width(100),Height(100)])

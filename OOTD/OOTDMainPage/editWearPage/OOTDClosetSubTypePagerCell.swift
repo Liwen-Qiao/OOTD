@@ -23,7 +23,7 @@ class OOTDClosetSubTypePagerCell: UICollectionViewCell{
         super.init(frame: frame)
         
         closetSubTypeToolBar = OOTDTextToolBar(frame: CGRect.zero,
-                                               cellWidth: UIScreen.main.bounds.width/4.5,
+                                               cellWidth: UIScreen.main.bounds.width/4,
                                                cellHeight: 50,
                                                cellTextColor: OOTDConstant.darkBgColor,
                                                cellBgColor: .white,

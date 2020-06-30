@@ -50,7 +50,7 @@ class OOTDTextToolBar: UICollectionView {
         self.dataSource = self
         
         self.layer.borderColor = OOTDConstant.universalColor.cgColor
-        self.layer.borderWidth = 1
+        self.layer.borderWidth = 2
         
         self.toolBarItemList.append(contentsOf: toolBarItemList)
         

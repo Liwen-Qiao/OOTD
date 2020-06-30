@@ -8,15 +8,13 @@
 
 import UIKit
 import EasyPeasy
+import RealmSwift
 
 protocol OOTDStickerObjectEidtDelegate: class {
     func stickerObjectEidted(objectModel: StickerViewProtocol)
     func stickerObjectDeleted(objectModel: StickerViewProtocol)
 }
 
-//todo7: where is the tutorial
-//GMStickerView 接受一个图片的相关信息 图片数据 大小  位置  角度
-//在编辑区里修改了之后，对大小位置角度修改后，返回给GMStickerView所在的Parent view
 class OOTDStickerView: UIView {
     
     //ui
@@ -34,18 +32,16 @@ class OOTDStickerView: UIView {
     private var initialBounds = CGRect.zero   //一开始的图片大小
     private var initialDistance: CGFloat = 0  //手指按住的点 和 图片中心之间的距离
     
-    private var viewType: String
     private var stickerViewType: String = ""
     
-    //todo6 weak or what？？？？？？  需要测试是否有互相引用，感觉如果是value type也没事 //??
-    // transfer data
-    private var stickerViewData: StickerViewProtocol? //StickerView的数据，可以从roleResourceModel和mapObjectModel转换。
+    private var stickerViewData: StickerViewProtocol?
+    
     private weak var gmObjectEidtDelegate: OOTDStickerObjectEidtDelegate?
     
     
     //MARK: - init
-    init(objectModel: StickerViewProtocol?, viewType: String, delegate: OOTDStickerObjectEidtDelegate ){
-        self.viewType = viewType
+    init(objectModel: StickerViewProtocol?, delegate: OOTDStickerObjectEidtDelegate? ){
+        
         self.stickerViewData = objectModel
         
         let frameWidth = (objectModel?.stickerViewWidth ?? 80) + self.defaultBorder * 2
@@ -81,15 +77,15 @@ class OOTDStickerView: UIView {
         let toolFrame = CGRect(x: 0, y: 0, width: self.defaultBorder * 2, height: self.defaultBorder * 2)
         let closeButton = UIButton()
         closeButton.frame = toolFrame
-        closeButton.setImage(#imageLiteral(resourceName: "paster_delete"), for: .normal)
+        closeButton.setImage(#imageLiteral(resourceName: "closeBt"), for: .normal)
         closeButton.addTarget(self, action: #selector(self.closeButtonPressed(_:)), for: .touchUpInside) //设置关闭事件
         self.addSubview(closeButton)
-        closeButton.easy.layout([Right(0),Top(0)])
+        closeButton.easy.layout([Left(0),Top(0)])
         
         //旋转按钮
         let rorateView = UIImageView()
         rorateView.frame = toolFrame
-        rorateView.image = #imageLiteral(resourceName: "paster_ rotate")
+        rorateView.image = #imageLiteral(resourceName: "rotateBt")
         rorateView.isUserInteractionEnabled = true
         let rotateGesture = UIPanGestureRecognizer(target: self, action: #selector(handleRotateGesture(_:)))
         rorateView.addGestureRecognizer(rotateGesture)//设置旋转事件
@@ -133,10 +129,13 @@ class OOTDStickerView: UIView {
             fileView.center = CGPoint(x: fileView.center.x + translation.x, y: fileView.center.y + translation.y)
             sender.setTranslation(CGPoint.zero, in: fileView)
         case .ended:
-            self.stickerViewData?.stickerViewLocationX = Int(fileView.center.x)
-            self.stickerViewData?.stickerViewLocationY = Int(fileView.center.y)
-            if let stickerViewData = stickerViewData{
-                gmObjectEidtDelegate?.stickerObjectEidted(objectModel: stickerViewData)
+            let realm = try! Realm()
+            try! realm.write {
+                self.stickerViewData?.stickerViewLocationX = Int(fileView.center.x)
+                self.stickerViewData?.stickerViewLocationY = Int(fileView.center.y)
+                if let stickerViewData = stickerViewData{
+                    gmObjectEidtDelegate?.stickerObjectEidted(objectModel: stickerViewData)
+                }
             }
         default:
             break
@@ -167,13 +166,16 @@ class OOTDStickerView: UIView {
             self.bounds = CGRect(x:self.bounds.origin.x , y: self.bounds.origin.y, width: selectedImageView.bounds.size.width + CGFloat(self.defaultBorder) * 2, height: selectedImageView.bounds.size.height + CGFloat(self.defaultBorder) * 2)
             self.setNeedsDisplay()
         case .ended:
-            self.stickerViewData?.stickerViewLocationX = Int(self.center.x)
-            self.stickerViewData?.stickerViewLocationY = Int(self.center.y)
-            self.stickerViewData?.stickerViewWidth = Int(selectedImageView.bounds.width)
-            self.stickerViewData?.stickerViewHeight = Int(selectedImageView.bounds.height)
-            self.stickerViewData?.stickerViewRadian = radian
-            if let stickerViewData = stickerViewData{
-                gmObjectEidtDelegate?.stickerObjectEidted(objectModel: stickerViewData)
+            let realm = try! Realm()
+            try! realm.write {
+                self.stickerViewData?.stickerViewLocationX = Int(self.center.x)
+                self.stickerViewData?.stickerViewLocationY = Int(self.center.y)
+                self.stickerViewData?.stickerViewWidth = Int(selectedImageView.bounds.width)
+                self.stickerViewData?.stickerViewHeight = Int(selectedImageView.bounds.height)
+                self.stickerViewData?.stickerViewRadian = radian
+                if let stickerViewData = stickerViewData{
+                    gmObjectEidtDelegate?.stickerObjectEidted(objectModel: stickerViewData)
+                }
             }
         default:
             break

@@ -303,10 +303,10 @@
 		1E46FAAD24997DF800631906 /* OOTDMainPage */ = {
 			isa = PBXGroup;
 			children = (
-				1E67908824A728F600937631 /* stickerView */,
 				1E46FAAE24997DF800631906 /* QMainTabView.swift */,
 				1E46FAB124997DF800631906 /* wearListPage */,
 				1E67907724A71AAE00937631 /* editWearPage */,
+				1E67908824A728F600937631 /* stickerView */,
 				1E67907824A71F5900937631 /* iconToolBar */,
 				1E46FAAF24997DF800631906 /* closetPage */,
 				1E46FABF2499C11100631906 /* userPage */,

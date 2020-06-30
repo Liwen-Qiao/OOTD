@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import RealmSwift
 
 //一个image 层，里面包含多个resource resouce 里面有文字和图片。
 class OOTDClothesImageEditArea: UIView {
@@ -15,34 +16,25 @@ class OOTDClothesImageEditArea: UIView {
     private var resourceTagAndViewList: [(resourceTag: Int, resourceView: UIView)]  = []
     private var stikerViewList: [OOTDStickerView] = []
     
-    private var wearRealmModel: WearRealmModel
-    
+    private var wearRealmModel: WearRealmModel?
+    private var wearCholthesList: [WearClothesRealmModel] = []
     //private weak var saveImageDelegate: QSaveImageDelegate?
     
     private weak var stickerObjectEidtDelegate: OOTDStickerObjectEidtDelegate?
     
-    init(frame: CGRect, wearModel: WearRealmModel, stickerObjectEidtDelegate: OOTDStickerObjectEidtDelegate) {
+    init(frame: CGRect, wearModel: WearRealmModel?, stickerObjectEidtDelegate: OOTDStickerObjectEidtDelegate) {
         
         self.wearRealmModel = wearModel
         self.stickerObjectEidtDelegate = stickerObjectEidtDelegate
         super.init(frame:frame)
         self.backgroundColor = .clear
         
-//        //添加图片资源
-//        if let theRoleElementList = self.roleLayerModel.roleElementList{
-//            for oneElement in theRoleElementList {
-//                if let oneElementModel = oneElement as? GMRoleElementModel{
-//                    //服务器的element 是0 ， 图片是2  //文字是1
-//                    if oneElementModel.roleElementType == 0 || oneElementModel.roleElementType == 2{
-//                        addNewImageViewElement(resourceModel: oneElementModel)
-//                    }
-//                    //文字是1
-//                    else if oneElementModel.roleElementType == 1{
-//                        addNewLabelElement(roleTextElement: oneElementModel)
-//                    }else {}
-//                }
-//            }
-//        }
+        if let wearClothesList = self.wearRealmModel?.wearClothesList{
+            for wearClothes in wearClothesList {
+                wearCholthesList.append(wearClothes)
+                addNewImageViewElement(clothesModel: wearClothes)
+            }
+        }
         
         self.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture(_:)))
@@ -56,107 +48,82 @@ class OOTDClothesImageEditArea: UIView {
     //MARK: - Gesture
     @objc func tapGesture(_ sender: UIGestureRecognizer){
         
-        //把所有stikerView隐藏
         for stikerView in stikerViewList{
             stikerView.isHidden = true
         }
-        
-        //从列表移除
         stikerViewList.removeAll()
- 
-        //当点击到[背景区域]的时候。   显示所有的ImageView. 因为只有背景区域是0, 非sticker的区域的tag 为0，
+        
         if sender.self.view?.tag == 0 {
             for oneTagAndImageView in resourceTagAndViewList{
                 oneTagAndImageView.resourceView.isHidden = false
             }
-        }
-            
-        //点击到[sticker]的时候
-        else {
+        }else {
             let selectedViewTag = sender.self.view?.tag // 被点击的view
-  
-            //根据点击的view，来获取index，  根据被点击的view获取tag，然后用tag获取，当前view在list的index。    // 从一个元素中的tuple的第二个元素的tag
+            
             if let tapIndex = self.resourceTagAndViewList.firstIndex(where: {$0.1.tag == selectedViewTag } ){
-//                //根据index获取elementModel
-//                //if let roleElementModel = self.roleLayerModel.roleElementList?.object(at: tapIndex ) as?  GMRoleElementModel {
-//                    //根据GMMapObjectLayerModel 创建一个GMStickerView
-//                    let stickerView = OOTDStickerView(objectModel: roleElementModel,
-//                                                    viewType: "RoleElement",
-//                                                    delegate: stickerObjectEidtDelegate)
-//                    stickerView.center = CGPoint(x: roleElementModel.stickerViewLocationX, y: roleElementModel.stickerViewLocationY)
-//                    stickerView.transform = CGAffineTransform(rotationAngle: CGFloat(roleElementModel.roleElementRadian) )
-//                    stikerViewList.append(stickerView)
-//
-//                    //在 resourceTagAndViewList 找到被选中View，然后隐藏起来，之后为了让stickerView显示
-//                    for oneResourceTagAndView in resourceTagAndViewList{
-//                        if oneResourceTagAndView.resourceView.tag == selectedViewTag{
-//                            oneResourceTagAndView.resourceView.isHidden = true
-//                        }else{
-//                            oneResourceTagAndView.resourceView.isHidden = false
-//                        }
-//                    }
-//                    self.addSubview(stickerView)
-//               // }
+                let wearClothesModel = self.wearCholthesList[tapIndex]
+                let stickerView = OOTDStickerView(objectModel: wearClothesModel,
+                                                  delegate: self.stickerObjectEidtDelegate)
+                stickerView.center = CGPoint(x: wearClothesModel.stickerViewLocationX, y: wearClothesModel.stickerViewLocationY)
+                stickerView.transform = CGAffineTransform(rotationAngle: CGFloat(wearClothesModel.wearClothesRadian) )
+                stikerViewList.append(stickerView)
+                
+                for oneResourceTagAndView in resourceTagAndViewList{
+                    if oneResourceTagAndView.resourceView.tag == selectedViewTag{
+                        oneResourceTagAndView.resourceView.isHidden = true
+                    }else{
+                        oneResourceTagAndView.resourceView.isHidden = false
+                    }
+                }
+                self.addSubview(stickerView)
             }
         }
     }
     
-    func addNewImageViewElement(resourceModel: WearClothesRealmModel){
-        //添加 coredata 的 roleLayerModel
-//        self.roleLayerModel.addToRoleElementList(resourceModel)
-//
-//        //根据 ElementModel 创建 UIImageView
-//        let oneResourceImage = UIImageView(frame: CGRect( x: CGFloat(resourceModel.roleElementLocationX),
-//                                                          y: CGFloat(resourceModel.roleElementLocationY),
-//                                                          width: CGFloat(resourceModel.roleElementHeight),
-//                                                          height: CGFloat(resourceModel.roleElementHeight)))
-//        oneResourceImage.center = CGPoint(x: resourceModel.stickerViewLocationX, y: resourceModel.stickerViewLocationY)
-//        oneResourceImage.image = QImageFile.getDocumentImage(imagePath:"\(resourceModel.resourceMainImageType)/\(resourceModel.resourceMainImage)")
-//        oneResourceImage.transform = CGAffineTransform(rotationAngle: CGFloat(resourceModel.roleElementRadian))
-//        oneResourceImage.tag = Int(resourceModel.roleElementId)
-//
-//        //添加事件
-//        oneResourceImage.isUserInteractionEnabled = true
-//        let  tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture(_:)))
-//        oneResourceImage.addGestureRecognizer(tapGesture)
-//
-//        //添加到 referenceList
-//        self.resourceTagAndViewList.append((Int(resourceModel.resourceId) ?? 0, oneResourceImage))
-//        //添加到 view
-//        addSubview(oneResourceImage)
-//        //self.saveImageDelegate?.saveImagePerMoving()
+    func addNewImageViewElement(clothesModel: WearClothesRealmModel){
+        
+        let oneItemImage = UIImageView(frame: CGRect( x: CGFloat(clothesModel.stickerViewLocationX),
+                                                      y: CGFloat(clothesModel.stickerViewLocationY),
+                                                      width: CGFloat(clothesModel.wearClothesWidth),
+                                                      height: CGFloat(clothesModel.wearClothesHeight)))
+        oneItemImage.center = CGPoint(x: clothesModel.stickerViewLocationX, y: clothesModel.stickerViewLocationY)
+        oneItemImage.image = QImageFile.getDocumentImage(imagePath:"\(clothesModel.wearClothesMainImageType)/\(clothesModel.wearClothesMainImage)")
+        oneItemImage.contentMode = .scaleAspectFill
+        oneItemImage.transform = CGAffineTransform(rotationAngle: CGFloat(clothesModel.wearClothesRadian))
+        oneItemImage.tag = Int(clothesModel.stickerViewId)
+        
+        //添加事件
+        oneItemImage.isUserInteractionEnabled = true
+        let  tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture(_:)))
+        oneItemImage.addGestureRecognizer(tapGesture)
+        wearCholthesList.append(clothesModel)
+        //添加到 referenceList
+        self.resourceTagAndViewList.append((Int(clothesModel.stickerViewId) , oneItemImage))
+        //添加到 view
+        addSubview(oneItemImage)
     }
     
     func stickerDeleted(clothesModel: StickerViewProtocol){
-//       if let deltIndex = self.roleLayerModel.roleElementList?.index(of: elementModel as?  GMRoleElementModel ?? GMRoleElementModel()){
-//            // 从 coredata 的 roleLayerModel 删除
-//            self.roleLayerModel.removeFromRoleElementList(elementModel as? GMRoleElementModel ?? GMRoleElementModel() )
-//            // 从 referenceList 删除
-//            self.resourceTagAndViewList.remove(at: deltIndex )
-//            //合并 多层图片数据 成一张图片，保存到本地文件夹
-//            self.saveImageDelegate?.saveImagePerMoving()
-//        }
+        if let deltIndex = self.wearRealmModel?.wearClothesList.index(of: clothesModel as! WearClothesRealmModel){
+            self.wearRealmModel?.wearClothesList.remove(at: deltIndex)
+            self.resourceTagAndViewList.remove(at: deltIndex )
+        }
     }
-//
     func stickerEidted(clothesModel: StickerViewProtocol) {
-//        guard let roleElementModel = elementModel as? GMRoleElementModel else { return }
-//        let tag = elementModel.stickerViewId
-//        if let tapIndex = self.resourceTagAndViewList.firstIndex(where: {$0.1.tag == tag}){
-//
-//            self.roleLayerModel.replaceRoleElementList(at: tapIndex, with: roleElementModel)
-//            self.resourceTagAndViewList[tapIndex].resourceView.bounds = CGRect(  x: CGFloat(elementModel.stickerViewLocationX),
-//                                                                                 y: CGFloat(elementModel.stickerViewLocationY),
-//                                                                                 width: CGFloat(elementModel.stickerViewWidth),
-//                                                                                 height: CGFloat(elementModel.stickerViewHeight))
-//            self.resourceTagAndViewList[tapIndex ].resourceView.center = CGPoint(x: CGFloat(elementModel.stickerViewLocationX),
-//                                                                                 y: CGFloat(elementModel.stickerViewLocationY))
-//            if let objectRadian = elementModel.stickerViewRadian{
-//                self.resourceTagAndViewList[tapIndex].resourceView.transform = CGAffineTransform(rotationAngle: CGFloat(objectRadian))
-//            }
-//            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture(_:)))
-//            self.resourceTagAndViewList[tapIndex ].resourceView.addGestureRecognizer(tapGesture)
-//            self.saveImageDelegate?.saveImagePerMoving()
-//        }
-   }
+        let tag = clothesModel.stickerViewId
+        if let tapIndex = self.resourceTagAndViewList.firstIndex(where: {$0.1.tag == tag}){
+            self.wearRealmModel?.wearClothesList.replace(index: tapIndex, object: clothesModel as! WearClothesRealmModel)
+            self.resourceTagAndViewList[tapIndex].resourceView.bounds = CGRect(  x: CGFloat(clothesModel.stickerViewLocationX),
+                                                                                 y: CGFloat(clothesModel.stickerViewLocationY),
+                                                                                 width: CGFloat(clothesModel.stickerViewWidth),
+                                                                                 height: CGFloat(clothesModel.stickerViewHeight))
+            self.resourceTagAndViewList[tapIndex ].resourceView.center = CGPoint(x: CGFloat(clothesModel.stickerViewLocationX),
+                                                                                 y: CGFloat(clothesModel.stickerViewLocationY))
+            self.resourceTagAndViewList[tapIndex].resourceView.transform = CGAffineTransform(rotationAngle: CGFloat(clothesModel.stickerViewRadian))
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture(_:)))
+            self.resourceTagAndViewList[tapIndex ].resourceView.addGestureRecognizer(tapGesture)
+            
+        }
+    }
 }
 

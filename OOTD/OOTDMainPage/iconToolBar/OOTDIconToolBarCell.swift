@@ -11,45 +11,38 @@ import EasyPeasy
 
 class OOTDIconToolBarCell: UICollectionViewCell {
     
+    private var toolBarIconView: UIView!
     private var toolBarIcon: UIImageView!
-    private var toolBarHightLight: UIView!
-    private var highlightColor: UIColor?
     
     override var isSelected: Bool {
         didSet {
-            self.toolBarHightLight.backgroundColor = isSelected ? self.highlightColor : self.backgroundColor
+            toolBarIconView.layer.borderColor = isSelected ? OOTDConstant.white.cgColor : OOTDConstant.universalColor.cgColor.copy(alpha: 0.8)
         }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.backgroundColor = OOTDConstant.darkBgColor
+        toolBarIconView = UIView()
+        toolBarIconView.backgroundColor = OOTDConstant.universalColor
+        toolBarIconView.layer.borderColor = OOTDConstant.universalColor.cgColor.copy(alpha: 0.8)
+        toolBarIconView.layer.borderWidth = 3
+        toolBarIconView.layer.cornerRadius = 22.5
+        addSubview(toolBarIconView)
+        toolBarIconView.easy.layout(CenterX(0), CenterY(0), Width(45), Height(45) )
+        
         toolBarIcon = UIImageView()
-        addSubview(toolBarIcon)
+        toolBarIcon.clipsToBounds = true
+        toolBarIconView.addSubview(toolBarIcon)
         toolBarIcon.easy.layout(CenterX(0), CenterY(0), Width(25), Height(25) )
-
-        toolBarHightLight = UIView()
-        addSubview(toolBarHightLight)
-        //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
-        toolBarHightLight.easy.layout([Bottom(0),Left(0),Right(0),Height(5)])
+        
     }
     
     required init?(coder aDecoder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
     
-    func updateIconToolBarCell(toolBarItem: OOTDIconToolBarModel, highlightColor: UIColor?, backgroundColor: UIColor, iconHeight: CGFloat){
+    func updateIconToolBarCell(toolBarItem: OOTDIconToolBarModel){
         toolBarIcon.image = UIImage(named: toolBarItem.toolBarItemLocalImage)
-        toolBarIcon.easy.layout(CenterX(0), CenterY(0), Width(iconHeight), Height(iconHeight) )
-        //toolBarIcon.kf.setImage(with: URL(string: toolBarItem.tooBarItemImageUrl))
-        self.highlightColor = highlightColor
-        self.backgroundColor = backgroundColor
-        if let highlightColor = highlightColor {
-            if isSelected == true{
-                toolBarHightLight.backgroundColor = highlightColor
-            }else{
-                toolBarHightLight.backgroundColor = self.backgroundColor
-            }
-            toolBarHightLight.isHidden = false
-        }
     }
 }
 

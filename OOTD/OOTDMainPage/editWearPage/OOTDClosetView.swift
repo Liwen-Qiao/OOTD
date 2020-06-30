@@ -32,12 +32,8 @@ class OOTDClosetView: UIView {
         clothesToolBar = OOTDIconToolBar(frame: CGRect.zero,
                                          itemHeight: 53,
                                          itemWidth: UIScreen.main.bounds.width/4,
-                                         iconHeight: 25,
-                                         backgroundColor: OOTDConstant.universalColor,
                                          toolBarItemList: toolBarItemList,
-                                         highlightColor: OOTDConstant.darkBgColor,
-                                         delegate: self,
-                                         viewTag: "clothesToolBar")
+                                         delegate: self)
         
         clothesToolBar.backgroundColor = OOTDConstant.white
         clothesToolBar.layer.borderWidth = 2

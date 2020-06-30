@@ -12,8 +12,8 @@ import RealmSwift
 class WearClothesRealmModel: Object , StickerViewProtocol{
     
     @objc dynamic var wearClothesId: Int = UUID().hashValue
-    @objc dynamic var wearClothesWidth: Int = 100
-    @objc dynamic var wearClothesHeight: Int = 100
+    @objc dynamic var wearClothesWidth: Int = 150
+    @objc dynamic var wearClothesHeight: Int = 150
     @objc dynamic var wearClothesX: Int = 100
     @objc dynamic var wearClothesY: Int = 100
     @objc dynamic var wearClothesScale: Float = 0
@@ -21,6 +21,7 @@ class WearClothesRealmModel: Object , StickerViewProtocol{
     @objc dynamic var wearClothesMainImage: String = ""
     @objc dynamic var wearClothesMainImageType: String = ""
     
+    let wearRealmModel = LinkingObjects(fromType: WearRealmModel.self, property: "wearClothesList")
     
     override static func primaryKey() -> String? {
         return "wearClothesId"

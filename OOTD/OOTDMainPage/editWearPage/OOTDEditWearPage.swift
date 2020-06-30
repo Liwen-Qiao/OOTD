@@ -22,11 +22,12 @@ class OOTDEditWearPage: UIViewController {
     private var clothesImageEditArea: OOTDClothesImageEditArea!
     
     //data
-    private var wearRealmModel : WearRealmModel
+    private var wearRealmModel : WearRealmModel?
     
     private var clothesList: [[[ClothesRealmModel]]] = []
+    private var wearClothesList: [WearClothesRealmModel] = []
     
-    init(wearRealmModel: WearRealmModel){
+    init(wearRealmModel: WearRealmModel?){
         self.wearRealmModel = wearRealmModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -50,7 +51,8 @@ class OOTDEditWearPage: UIViewController {
         setupLayerView()
         
         getClothesListFromRealm()
-        
+    
+        //setupWearRealmModelData()
     }
     
     func setupNavView(){
@@ -80,8 +82,6 @@ class OOTDEditWearPage: UIViewController {
         saveBt.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
         saveBt.easy.layout(Left(0),Right(0), Width(40), Height(30))
         navigationItem.setRightBarButton(rightbutton, animated: false)
-        
-        
     }
     
     func setupBackView(){
@@ -95,15 +95,6 @@ class OOTDEditWearPage: UIViewController {
         self.view.sendSubviewToBack(imageView)
         imageView.easy.layout([Edges(0)])
     }
-    
-    @objc func backButtonClicked(){
-        self.navigationController?.popViewController(animated: false)
-    }
-    
-    @objc func saveButtonClicked(){
-    }
-    
-    
     
     //下面资源和工具栏，set up Draw Tool View
     private func  setupClosetView(){
@@ -120,61 +111,81 @@ class OOTDEditWearPage: UIViewController {
     
     //主编辑区  setup main layout
     private func setupImageEditView(){
+        
         clothesImageEditArea = OOTDClothesImageEditArea(frame: CGRect.zero,
                                                         wearModel: self.wearRealmModel,
                                                         stickerObjectEidtDelegate: self)
+        clothesImageEditArea.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         self.view.addSubview(clothesImageEditArea)
         clothesImageEditArea.easy.layout([Left(0),Right(0),Top(0), Width(UIScreen.main.bounds.width), Bottom(0).to(closetMainView)])
     }
     
     func getClothesListFromRealm(){
         let realm = try! Realm()
-        //let predicate = NSPredicate(format: "userEmail = %@", email)
         let theClothesList = realm.objects(ClothesRealmModel.self)
-        print("OOTDEditWearPage theClothesList\(theClothesList)")
         var theClothesArrayList : [ClothesRealmModel] = []
         theClothesArrayList.append(contentsOf: theClothesList)
-        //self.clothesList.append(contentsOf: theClothesList)
-        print("OOTDEditWearPage theClothesArrayList\(theClothesArrayList)")
         self.clothesList = ClothesRealmModel.classifyClothesByType(clothesList: theClothesArrayList)
         closetMainView.updateTileclothesData(clothesItemList: clothesList)
     }
     
     //左边图层
     private func setupLayerView(){
-        //        var roleLayerProtocolList = [OOTDLayerProtocol]()
-        //        if self.roleFrameModel.roleLayerList == nil{
-        //            roleLayerProtocolList = []
-        //        }else{
-        //            if let roleLayerModelList = self.roleFrameModel.roleLayerList {
-        //                for onelayerModel in roleLayerModelList{
-        //                    roleLayerProtocolList.append(onelayerModel as! OOTDLayerProtocol)
-        //                }
-        //            }
-        //        }
-        //
-        //        layerView = OOTDLayerWithToolbarView(frame: CGRect.zero, layerList: roleLayerProtocolList, selectdelegate: self, showOrHideDelegate: self, toolbarDelegate: self)
-        //        self.view.addSubview(layerView)
-        //        layerView.easy.layout([Left(2),Top(62),Width(137),Height(200)])
-        //        layerView.updateLayerViewData(layerList: roleLayerProtocolList)
-        //        self.layerSeletedIndex = (self.roleFrameModel.roleLayerList?.count ?? 1) - 1
-        //        self.roleLayerSelected = self.roleFrameModel.roleLayerList?.lastObject as? OOTDRoleLayerModel
-        //
-        //控制按钮
+        //todo
+        layerView = OOTDLayerEditPage(frame: CGRect.zero, layerList: [], delegate: self)
+        self.view.addSubview(layerView)
+        layerView.easy.layout([Right(10),Bottom(10).to(closetMainView),Width(150),Height(200)])
+        
+        if let wearRealmModel = self.wearRealmModel{
+            wearClothesList.append(contentsOf: wearRealmModel.wearClothesList)
+            layerView.updateLayerList(layerList: wearClothesList)
+        }
+        
         layerViewButton = UIButton()
+        layerViewButton.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.7)
+        layerViewButton.layer.shadowColor = UIColor.darkGray.cgColor
+        layerViewButton.layer.cornerRadius = 12.5
+        layerViewButton.layer.shadowOpacity = 0.5
+        layerViewButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        layerViewButton.layer.shadowRadius = 15
         layerViewButton.setImage(#imageLiteral(resourceName: "layerEdit"), for: .normal)
         layerViewButton.addTarget(self, action: #selector(self.layerViewButtonPressed), for: .touchUpInside)
-        layerViewButton.layer.cornerRadius = 15
         self.view.addSubview(layerViewButton)
-        layerViewButton.easy.layout([Left(10),Bottom(10).to(closetMainView),Width(25),Height(25)])
+        layerViewButton.easy.layout([Left(20),Bottom(20).to(closetMainView),Width(25),Height(25)])
         layerViewButton.isSelected = false
     }
     
     //MARK: - button Action
-    //左边 图层按钮事件 layerView show/hide
+    
+    @objc func backButtonClicked(){
+        self.navigationController?.popViewController(animated: false)
+    }
+    
+    @objc func saveButtonClicked(){
+        if let wearRealmModel = self.wearRealmModel{
+            let realm = try! Realm()
+            try! realm.write {
+                if wearRealmModel.wearClothesList.count > 0{
+                    wearRealmModel.wearClothesList.removeAll()
+                }
+                wearRealmModel.wearClothesList.append(objectsIn: self.wearClothesList)
+                saveTransparentImageFromImageEditArea(wearRealmModel: wearRealmModel)
+            }
+        }else{
+            let realm = try! Realm()
+            try! realm.write {
+                let newWearRealmModel = WearRealmModel(value: ["wearType": 0, "wearSubType": 0, "wearMainImageType": "wearMainImage", "wearMainImage": "\(OOTDConstant.getTimeString()).png" ])
+                newWearRealmModel.wearClothesList.append(objectsIn: self.wearClothesList)
+                realm.add(newWearRealmModel, update: .modified)
+                saveTransparentImageFromImageEditArea(wearRealmModel: newWearRealmModel)
+            }
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+
     @objc func layerViewButtonPressed(){
         if layerViewButton.isSelected == true {
-            self.layerViewButton.setImage(#imageLiteral(resourceName: "foldLeft"), for: .normal)
+            self.layerViewButton.setImage(#imageLiteral(resourceName: "layerEdit"), for: .normal)
             self.layerView.isHidden = false
             let transition:CATransition = CATransition()
             transition.duration = 0.3
@@ -201,7 +212,7 @@ class OOTDEditWearPage: UIViewController {
 }
 
 //保存图片数据  截出透明的图 并且保存本地 根据 roleFrameModel 来保存图片到相关地址
-private func saveTransparentImageFromImageEditArea(){
+    private func saveTransparentImageFromImageEditArea(wearRealmModel: WearRealmModel){
     UIGraphicsBeginImageContextWithOptions(self.clothesImageEditArea.layer.frame.size, false, 0)
     guard let uiGraphicsGetCurrentContext = UIGraphicsGetCurrentContext() else { return }
     self.clothesImageEditArea.layer.render(in: uiGraphicsGetCurrentContext )
@@ -218,24 +229,12 @@ extension OOTDEditWearPage: OOTDLayerInfoUpdateDelegate{
 
 extension OOTDEditWearPage: OOTDClothesItemSelectDelegate{
     func oneClothesItemPressed(clothesInfo: ClothesRealmModel) {
-        //        optionValue.updateValue(self.layerSeletedIndex, forKey: "layerIndex")
-        //        optionValue.updateValue(resourceInfo, forKey: "resourceInfo")
-        //        optionValue.updateValue(viewTag, forKey: "viewTag")
-        //        let redoStackInfo = OOTDRedoStack(redoKey: "addRoleElement", oppositeKey: "deleteRoleElement", optionValueDic: optionValue)
-        //        stackObjectProcess(action: "addRoleElement", optionValue: redoStackInfo)
-        //        self.addRoleElement(resourceInfo: resourceInfo, viewTag: viewTag, layerIndex: layerSeletedIndex)
-    }
-    
-    func addButtonPressed() {
-        //添加自己的照片
-        //let addImageToResourcePage = OOTDImageAddToResourcePage(addNewImageDelegate: self)
-        // self.navigationController?.pushViewController(addImageToResourcePage, animated: true)
-    }
-}
-
-extension OOTDEditWearPage: OOTDSaveImageDelegate{
-    func saveImagePerMoving() {
-        self.saveTransparentImageFromImageEditArea()
+        let newWearClothesModel = WearClothesRealmModel()
+        newWearClothesModel.wearClothesMainImage = clothesInfo.clothesMainImage
+        newWearClothesModel.wearClothesMainImageType = clothesInfo.clothesMainImageType
+        self.wearClothesList.append(newWearClothesModel)
+        layerView.updateLayerList(layerList: self.wearClothesList)
+        clothesImageEditArea.addNewImageViewElement(clothesModel: newWearClothesModel)
     }
 }
 

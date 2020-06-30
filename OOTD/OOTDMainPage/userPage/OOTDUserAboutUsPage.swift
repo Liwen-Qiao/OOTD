@@ -38,6 +38,7 @@ class OOTDUserAboutUsPage: UIViewController {
         let companyNameLabel = UILabel()
         companyNameLabel.text = "上海海乔信息技术有限公司"
         companyNameLabel.textAlignment = .center
+        companyNameLabel.textColor = OOTDConstant.darkBgColor
         titleView.addSubview(companyNameLabel)
         companyNameLabel.easy.layout(CenterX(0), Width(250), Height(15), Top(20).to(logoView))
         
@@ -45,6 +46,7 @@ class OOTDUserAboutUsPage: UIViewController {
         let companyEngNameLabel = UILabel()
         companyEngNameLabel.text = "Shanghai HighQlty Information Tecnology Ltd"
         companyEngNameLabel.textAlignment = .center
+        companyEngNameLabel.textColor = OOTDConstant.darkBgColor
         companyEngNameLabel.font = OOTDConstant.fontSmall
         titleView.addSubview(companyEngNameLabel)
         companyEngNameLabel.easy.layout(CenterX(0), Width(UIScreen.main.bounds.width), Height(15), Top(20).to(companyNameLabel))
@@ -82,8 +84,9 @@ extension OOTDUserAboutUsPage: UITableViewDelegate, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "userAboutUsTableViewCell", for: indexPath)
         cell.textLabel?.text = aboutusItemList[indexPath.row]
         cell.textLabel?.font = OOTDConstant.fontNormal
-        cell.backgroundColor = .white
+        cell.textLabel?.textColor = OOTDConstant.darkBgColor
         cell.accessoryType = .disclosureIndicator
+        cell.backgroundColor = OOTDConstant.white.withAlphaComponent(0.8)
         cell.layer.cornerRadius = 15
         let bgView = UIView(frame: cell.frame)
         bgView.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.2)

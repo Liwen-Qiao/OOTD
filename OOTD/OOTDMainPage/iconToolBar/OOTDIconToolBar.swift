@@ -14,22 +14,12 @@ protocol OOTDIconBarItemSelectedDelegate: class {
 
 class OOTDIconToolBar: UICollectionView {
     
-    //data
-    private var iconToolBarViewTag: String
-    private var iconHeight: CGFloat
-    private var highlightColor: UIColor?
-    private var backGroundColor: UIColor
     private var toolBarItemList: [OOTDIconToolBarModel] = []
-    //delegate
     private weak var clothesIconBarItemSelectDelegate: OOTDIconBarItemSelectedDelegate?
     
-    init(frame: CGRect, itemHeight: CGFloat, itemWidth: CGFloat, iconHeight: CGFloat, backgroundColor: UIColor, toolBarItemList: [OOTDIconToolBarModel], highlightColor: UIColor?, delegate: OOTDIconBarItemSelectedDelegate, viewTag: String) {
+    init(frame: CGRect, itemHeight: CGFloat, itemWidth: CGFloat, toolBarItemList: [OOTDIconToolBarModel], delegate: OOTDIconBarItemSelectedDelegate) {
         
-        iconToolBarViewTag = viewTag
-        self.highlightColor = highlightColor
         clothesIconBarItemSelectDelegate = delegate
-        self.backGroundColor = backgroundColor
-        self.iconHeight = iconHeight
         
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 1
@@ -40,13 +30,12 @@ class OOTDIconToolBar: UICollectionView {
         super.init(frame: frame, collectionViewLayout: layout)
         register(OOTDIconToolBarCell.self, forCellWithReuseIdentifier: "OOTDIconToolBarCell")
         showsHorizontalScrollIndicator = false
-        self.backgroundColor = backgroundColor
+        self.backgroundColor = OOTDConstant.darkBgColor
         self.delegate = self
         self.dataSource = self
         
         self.toolBarItemList.append(contentsOf: toolBarItemList)
         
-        //self.backgroundView = UIImageView(image: #imageLiteral(resourceName: "iconToolBarBg"))
     }
     
     required init?(coder: NSCoder) {
@@ -71,10 +60,7 @@ extension OOTDIconToolBar: UICollectionViewDataSource, UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "OOTDIconToolBarCell", for: indexPath) as! OOTDIconToolBarCell
-        cell.updateIconToolBarCell(toolBarItem: toolBarItemList[indexPath.row],
-                                   highlightColor: highlightColor,
-                                   backgroundColor : backGroundColor,
-                                   iconHeight: iconHeight)
+        cell.updateIconToolBarCell(toolBarItem: toolBarItemList[indexPath.row])
         return cell
     }
     

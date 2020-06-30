@@ -11,13 +11,13 @@ import EasyPeasy
 import RealmSwift
 
 protocol WearMainPageDelegate: class {
-    func pushToWearMainPage(wearRealmModel: WearRealmModel)
+    func pushToWearMainPage(wearRealmModel: WearRealmModel?)
 }
 
 class OOTDWearMainPage: UIViewController{
     
     private var wearColcView: OOTDWearColcView!
-    private var wearList: [WearRealmModel]? = []
+    private var theWearArrayList: [WearRealmModel] = []
     
     private var wearMainPageDelegate: WearMainPageDelegate?
     
@@ -36,6 +36,7 @@ class OOTDWearMainPage: UIViewController{
         navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        title = "搭配"
         
         let button = UIButton()
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
@@ -57,23 +58,34 @@ class OOTDWearMainPage: UIViewController{
         self.view.addSubview(bg)
         bg.easy.layout([Edges(0)])
         
-        setupClothesColcView()
-    }
-    
-    func setupClothesColcView(){
-        wearColcView = OOTDWearColcView(frame: CGRect.zero, wearList: wearList ?? [])
+        wearColcView = OOTDWearColcView(frame: CGRect.zero, wearList: theWearArrayList, delegate: self)
         wearColcView.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.2)
         self.view.addSubview(wearColcView)
         wearColcView.easy.layout([Edges(10)])
     }
     
-    @objc func addButtonClicked(){
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = false
+        getReamlData()
+    }
+    
+    func getReamlData(){
         let realm = try! Realm()
-        try! realm.write {
-            let newWearRealmModel = WearRealmModel(value: ["wearType": 0, "wearSubType": 0, "wearMainImage": "wearFolder", "wearMainImageType": "\(OOTDConstant.getTimeString()).png" ])
-            realm.add(newWearRealmModel, update: .modified)
-            self.wearMainPageDelegate?.pushToWearMainPage(wearRealmModel: newWearRealmModel)
-        }
-        
+        //let predicate = NSPredicate(format: "userEmail = %@", email)
+        let theWearList = realm.objects(WearRealmModel.self)
+        theWearArrayList.removeAll()
+        theWearArrayList.append(contentsOf: theWearList)
+        print("OOTDWearMainPage\(theWearArrayList)")
+        wearColcView.updateWearList(wearList: theWearArrayList)
+    }
+    
+    @objc func addButtonClicked(){
+        self.wearMainPageDelegate?.pushToWearMainPage(wearRealmModel: nil)
+    }
+}
+
+extension OOTDWearMainPage: OOTDClothesSelectDelegate{
+    func oneClothesPressed(pressedIndex: Int) {
+        self.wearMainPageDelegate?.pushToWearMainPage(wearRealmModel: theWearArrayList[pressedIndex])
     }
 }

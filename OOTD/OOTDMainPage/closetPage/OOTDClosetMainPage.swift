@@ -65,13 +65,9 @@ class OOTDClosetMainPage: UIViewController{
         let realm = try! Realm()
         //let predicate = NSPredicate(format: "userEmail = %@", email)
         let theClothesList = realm.objects(ClothesRealmModel.self)
-        print("OOTDEditWearPage theClothesList\(theClothesList)")
         var theClothesArrayList : [ClothesRealmModel] = []
         theClothesArrayList.append(contentsOf: theClothesList)
-        //self.clothesList.append(contentsOf: theClothesList)
-        print("OOTDEditWearPage theClothesArrayList\(theClothesArrayList)")
         self.clothesList = ClothesRealmModel.classifyClothesByType(clothesList: theClothesArrayList, clothesType: [0,1,2,3,4,5,6,7])
-        print("OOTDEditWearPage\(clothesList)")
         for clothesView in clothesViewList{
             for (index, clothes) in clothesList.enumerated(){
                 if clothesView.tag == index{

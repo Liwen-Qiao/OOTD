@@ -17,6 +17,8 @@ class WearRealmModel: Object {
     @objc dynamic var wearMainImage: String = ""
     @objc dynamic var wearMainImageType: String = ""
     
+    let wearClothesList = List<WearClothesRealmModel>()
+    
     override static func primaryKey() -> String? {
         return "wearId"
     }

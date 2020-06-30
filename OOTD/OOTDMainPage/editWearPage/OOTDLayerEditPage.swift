@@ -18,6 +18,8 @@ class OOTDLayerEditPage: UIView{
     //data
     private var wearClothesLayerList: [WearClothesRealmModel] = []
     
+    private var layerTable: UITableView!
+    
     //delegate
     private weak var layerInfoUpdateDelegate: OOTDLayerInfoUpdateDelegate?
     
@@ -26,7 +28,7 @@ class OOTDLayerEditPage: UIView{
         self.layerInfoUpdateDelegate = delegate
         super.init(frame:frame)
         
-        self.backgroundColor = .white
+        self.backgroundColor = .clear
         self.layer.borderColor = OOTDConstant.universalColor.cgColor
         self.layer.borderWidth = 3
         self.layer.shadowColor = UIColor.darkGray.cgColor
@@ -39,35 +41,15 @@ class OOTDLayerEditPage: UIView{
         // layerInfoTable
         setupLayerInfoTable()
         
-        setupButtonView()
+        //setupButtonView()
     }
     
     required init?(coder aDecoder: NSCoder) {  fatalError("init(coder:) has not been implemented") }
     
-    func setupButtonView(){
-        let cencelBt = UIButton()
-        cencelBt.backgroundColor = .white
-        cencelBt.setTitle("Cancel", for: .normal)
-        cencelBt.setTitleColor(.black, for: .normal)
-        cencelBt.clipsToBounds = true
-        self.addSubview(cencelBt)
-        cencelBt.easy.layout([Left(0), Bottom(0), Height(60), Width(150)])
-        cencelBt.addTarget(self, action: #selector(cencelButtonPressed), for: .touchUpInside)
-        
-        let doneBt = UIButton()
-        doneBt.backgroundColor = .white
-        doneBt.setTitle("Done", for: .normal)
-        doneBt.setTitleColor(OOTDConstant.universalColor, for: .normal)
-        doneBt.clipsToBounds = true
-        self.addSubview(doneBt)
-        doneBt.easy.layout([Left(0).to(cencelBt), Bottom(0), Height(60), Width(150)])
-        doneBt.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
-    }
-    
     //setup LayerInfoTable
     func setupLayerInfoTable(){
-        let layerTable = UITableView(frame: CGRect())
-        layerTable.backgroundColor = UIColor.white
+        layerTable = UITableView(frame: CGRect())
+        layerTable.backgroundColor = .clear
         layerTable.register(OOTDLayerEditCell.self, forCellReuseIdentifier: "OOTDLayerEditCell")
         layerTable.separatorInset =  UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layerTable.dataSource = self
@@ -78,19 +60,13 @@ class OOTDLayerEditPage: UIView{
         layerTable.easy.layout([Left(0), Top(0), Right(0), Bottom(0)])
     }
     
-    @objc func cencelButtonPressed(){
-        self.removeFromSuperview()
+    func updateLayerList(layerList: [WearClothesRealmModel]){
+        self.wearClothesLayerList.removeAll()
+        self.wearClothesLayerList.append(contentsOf: layerList)
+        layerTable.reloadData()
     }
-    
-    @objc func doneButtonPressed(){
-        layerInfoUpdateDelegate?.layerInfoUpdate(layerList: self.wearClothesLayerList)
-        
-        self.removeFromSuperview()
-    }
-    
 }
 
-//todo: UITableViewDataSource, UITableViewDelegate 分开
 extension OOTDLayerEditPage: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.wearClothesLayerList.count
@@ -103,11 +79,6 @@ extension OOTDLayerEditPage: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    // delete table cell
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
@@ -132,3 +103,36 @@ extension OOTDLayerEditPage: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+
+
+//    func setupButtonView(){
+//        let cencelBt = UIButton()
+//        cencelBt.backgroundColor = .white
+//        cencelBt.setTitle("Cancel", for: .normal)
+//        cencelBt.setTitleColor(.black, for: .normal)
+//        cencelBt.clipsToBounds = true
+//        self.addSubview(cencelBt)
+//        cencelBt.easy.layout([Left(0), Bottom(0), Height(60), Width(75)])
+//        cencelBt.addTarget(self, action: #selector(cencelButtonPressed), for: .touchUpInside)
+//
+//        let doneBt = UIButton()
+//        doneBt.backgroundColor = .white
+//        doneBt.setTitle("Done", for: .normal)
+//        doneBt.setTitleColor(OOTDConstant.universalColor, for: .normal)
+//        doneBt.clipsToBounds = true
+//        self.addSubview(doneBt)
+//        doneBt.easy.layout([Left(0).to(cencelBt), Bottom(0), Height(60), Width(75)])
+//        doneBt.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
+//    }
+    
+    
+    
+//    @objc func cencelButtonPressed(){
+//        self.removeFromSuperview()
+//    }
+//
+//    @objc func doneButtonPressed(){
+//        layerInfoUpdateDelegate?.layerInfoUpdate(layerList: self.wearClothesLayerList)
+//        self.removeFromSuperview()
+//    }
+    

@@ -17,12 +17,12 @@ class OOTDLayerEditCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         self.selectionStyle = .none
         
         layerImageView = UIImageView()
         addSubview(layerImageView)
-        layerImageView.easy.layout([Left(60), CenterY(0), Height(25)])
+        layerImageView.easy.layout([CenterX(0), CenterY(0), Height(25),Width(25)])
         
     }
     
