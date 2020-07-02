@@ -54,6 +54,8 @@ class OOTDStickerView: UIView {
         
         //中间的imageView
         selectedImageView = UIImageView(frame: CGRect(x: 15, y: 15, width: objectModel?.stickerViewWidth ?? 80, height: objectModel?.stickerViewHeight ?? 80))
+        selectedImageView.clipsToBounds = true
+        selectedImageView.contentMode = .scaleAspectFill
         if let objectModel = objectModel{
             selectedImageView.image = QImageFile.getDocumentImage(imagePath: "\(objectModel.stickerViewMainImageType)/\(objectModel.stickerViewMainImage)")
         }else {

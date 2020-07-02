@@ -49,13 +49,13 @@ class QMainTabView: SOTabBarController{
         let userMainPage = OOTDUserMainPage()
         
         let wearMainNavPage = UINavigationController(rootViewController: wearMainPage)
-        wearMainNavPage.tabBarItem = UITabBarItem(title: "wear", image: UIImage(named: "wearIcon"), selectedImage: UIImage(named: "wearSelectedIcon"))
+        wearMainNavPage.tabBarItem = UITabBarItem(title: "穿搭", image: UIImage(named: "wearIcon"), selectedImage: UIImage(named: "wearSelectedIcon"))
         
         let closetMainNavPage = UINavigationController(rootViewController: closetMainPage)
-        closetMainNavPage.tabBarItem = UITabBarItem(title: "closet", image: UIImage(named: "closetIcon"), selectedImage: UIImage(named: "closetSelectedIcon"))
+        closetMainNavPage.tabBarItem = UITabBarItem(title: "衣橱", image: UIImage(named: "closetIcon"), selectedImage: UIImage(named: "closetSelectedIcon"))
         
         let userMainNavPage = UINavigationController(rootViewController: userMainPage)
-        userMainNavPage.tabBarItem = UITabBarItem(title: "me", image: UIImage(named: "userIcon"), selectedImage: UIImage(named: "userSelectedIcon"))
+        userMainNavPage.tabBarItem = UITabBarItem(title: "我的", image: UIImage(named: "userIcon"), selectedImage: UIImage(named: "userSelectedIcon"))
 
         viewControllers = [wearMainNavPage, closetMainNavPage, userMainNavPage]
   

@@ -20,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>MavenPro-Regular.ttf</string>
+		<string>RuiZiWenShuaiKeAiFan-TTF-2.ttf</string>
+		<string>MavenPro-Bold.ttf</string>
+		<string>MavenPro-Medium.ttf</string>
+		<string>MavenPro-Black.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -59,13 +67,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>MavenPro-Regular.ttf</string>
-		<string>MavenPro-Bold.ttf</string>
-		<string>MavenPro-Medium.ttf</string>
-		<string>MavenPro-Black.ttf</string>
 	</array>
 </dict>
 </plist>

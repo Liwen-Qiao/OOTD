@@ -37,6 +37,7 @@ class OOTDUserAboutUsPage: UIViewController {
         
         let companyNameLabel = UILabel()
         companyNameLabel.text = "上海海乔信息技术有限公司"
+        companyNameLabel.font = UIFont(name: "REEJICutieTRegular", size: 14)
         companyNameLabel.textAlignment = .center
         companyNameLabel.textColor = OOTDConstant.darkBgColor
         titleView.addSubview(companyNameLabel)
@@ -45,6 +46,7 @@ class OOTDUserAboutUsPage: UIViewController {
         
         let companyEngNameLabel = UILabel()
         companyEngNameLabel.text = "Shanghai HighQlty Information Tecnology Ltd"
+        companyEngNameLabel.font = UIFont(name: "companyEngNameLabel-TTF-2", size: 24)
         companyEngNameLabel.textAlignment = .center
         companyEngNameLabel.textColor = OOTDConstant.darkBgColor
         companyEngNameLabel.font = OOTDConstant.fontSmall

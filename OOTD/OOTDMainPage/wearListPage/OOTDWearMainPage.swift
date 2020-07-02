@@ -36,7 +36,7 @@ class OOTDWearMainPage: UIViewController{
         navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
-        title = "搭配"
+        title = "Outfits"
         
         let button = UIButton()
         button.layer.cornerRadius = 0.5 * button.bounds.size.width

@@ -59,8 +59,7 @@ class OOTDClothesImageEditArea: UIView {
             }
         }else {
             let selectedViewTag = sender.self.view?.tag // 被点击的view
-            
-            if let tapIndex = self.resourceTagAndViewList.firstIndex(where: {$0.1.tag == selectedViewTag } ){
+            if let tapIndex = self.resourceTagAndViewList.firstIndex(where: {$0.1.tag == selectedViewTag} ){
                 let wearClothesModel = self.wearCholthesList[tapIndex]
                 let stickerView = OOTDStickerView(objectModel: wearClothesModel,
                                                   delegate: self.stickerObjectEidtDelegate)
@@ -87,6 +86,7 @@ class OOTDClothesImageEditArea: UIView {
                                                       width: CGFloat(clothesModel.wearClothesWidth),
                                                       height: CGFloat(clothesModel.wearClothesHeight)))
         oneItemImage.center = CGPoint(x: clothesModel.stickerViewLocationX, y: clothesModel.stickerViewLocationY)
+        oneItemImage.clipsToBounds = true
         oneItemImage.image = QImageFile.getDocumentImage(imagePath:"\(clothesModel.wearClothesMainImageType)/\(clothesModel.wearClothesMainImage)")
         oneItemImage.contentMode = .scaleAspectFill
         oneItemImage.transform = CGAffineTransform(rotationAngle: CGFloat(clothesModel.wearClothesRadian))

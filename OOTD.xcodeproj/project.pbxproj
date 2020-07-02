@@ -62,6 +62,7 @@
 		1E67908624A7284500937631 /* OOTDClothesImageEditArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67908524A7284500937631 /* OOTDClothesImageEditArea.swift */; };
 		1E67908A24A7291300937631 /* OOTDStickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67908924A7291300937631 /* OOTDStickerView.swift */; };
 		1E67908C24A86E5200937631 /* OOTDClosetTypePager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E67908B24A86E5200937631 /* OOTDClosetTypePager.swift */; };
+		1E841B3F24AD378A00BC14B0 /* RuiZiWenShuaiKeAiFan-TTF-2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E841B3E24AD378A00BC14B0 /* RuiZiWenShuaiKeAiFan-TTF-2.ttf */; };
 		4F9F38AE9053E40A95464D65 /* Pods_OOTD_OOTDUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */; };
 		733714F4F20DB43C985D93A6 /* Pods_OOTDTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A75B3677F31482A38780B4F /* Pods_OOTDTests.framework */; };
 		DDC4AAA5500E29BC8F274221 /* Pods_OOTD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */; };
@@ -89,7 +90,7 @@
 		1E42FD2524A5433500DAE51D /* OOTDWearColcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDWearColcView.swift; sourceTree = "<group>"; };
 		1E42FD2724A5436D00DAE51D /* OOTDWearColcViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDWearColcViewCell.swift; sourceTree = "<group>"; };
 		1E42FD2A24A5534800DAE51D /* OOTDEditWearPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDEditWearPage.swift; sourceTree = "<group>"; };
-		1E46FA4924992F5A00631906 /* OOTD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OOTD.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E46FA4924992F5A00631906 /* OOTD掌心衣橱.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OOTD掌心衣橱.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E46FA4C24992F5A00631906 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E46FA4E24992F5A00631906 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1E46FA5524992F5C00631906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +147,7 @@
 		1E67908524A7284500937631 /* OOTDClothesImageEditArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClothesImageEditArea.swift; sourceTree = "<group>"; };
 		1E67908924A7291300937631 /* OOTDStickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDStickerView.swift; sourceTree = "<group>"; };
 		1E67908B24A86E5200937631 /* OOTDClosetTypePager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OOTDClosetTypePager.swift; sourceTree = "<group>"; };
+		1E841B3E24AD378A00BC14B0 /* RuiZiWenShuaiKeAiFan-TTF-2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RuiZiWenShuaiKeAiFan-TTF-2.ttf"; sourceTree = "<group>"; };
 		285FD89C394E0B2B9B6BD397 /* Pods-OOTDTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OOTDTests.release.xcconfig"; path = "Target Support Files/Pods-OOTDTests/Pods-OOTDTests.release.xcconfig"; sourceTree = "<group>"; };
 		2F0E781F6A293C05D1E8BA71 /* Pods_OOTD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D6BA1D0CE92236FA1EF820 /* Pods_OOTD_OOTDUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OOTD_OOTDUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -210,7 +212,7 @@
 		1E46FA4A24992F5A00631906 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1E46FA4924992F5A00631906 /* OOTD.app */,
+				1E46FA4924992F5A00631906 /* OOTD掌心衣橱.app */,
 				1E46FA5F24992F5C00631906 /* OOTDTests.xctest */,
 				1E46FA6A24992F5D00631906 /* OOTDUITests.xctest */,
 			);
@@ -267,6 +269,7 @@
 		1E46FA8724997B9F00631906 /* OOTDLib */ = {
 			isa = PBXGroup;
 			children = (
+				1E67907824A71F5900937631 /* iconToolBar */,
 				1E46FA8824997B9F00631906 /* QTextInputWithLabelField.swift */,
 				1E46FA8924997BA000631906 /* QLogoView.swift */,
 				1E46FA8A24997BA000631906 /* File.swift */,
@@ -282,6 +285,7 @@
 			children = (
 				1E46FAA724997DF800631906 /* MavenPro-Black.ttf */,
 				1E46FAA824997DF800631906 /* MavenPro-Regular.ttf */,
+				1E841B3E24AD378A00BC14B0 /* RuiZiWenShuaiKeAiFan-TTF-2.ttf */,
 				1E46FAA924997DF800631906 /* MavenPro-Medium.ttf */,
 				1E46FAAA24997DF800631906 /* MavenPro-Bold.ttf */,
 			);
@@ -307,7 +311,6 @@
 				1E46FAB124997DF800631906 /* wearListPage */,
 				1E67907724A71AAE00937631 /* editWearPage */,
 				1E67908824A728F600937631 /* stickerView */,
-				1E67907824A71F5900937631 /* iconToolBar */,
 				1E46FAAF24997DF800631906 /* closetPage */,
 				1E46FABF2499C11100631906 /* userPage */,
 			);
@@ -416,7 +419,7 @@
 			);
 			name = OOTD;
 			productName = OOTD;
-			productReference = 1E46FA4924992F5A00631906 /* OOTD.app */;
+			productReference = 1E46FA4924992F5A00631906 /* OOTD掌心衣橱.app */;
 			productType = "com.apple.product-type.application";
 		};
 		1E46FA5E24992F5C00631906 /* OOTDTests */ = {
@@ -508,6 +511,7 @@
 			files = (
 				1E46FABE2499B17D00631906 /* Main.storyboard in Resources */,
 				1E46FAB424997DF800631906 /* MavenPro-Black.ttf in Resources */,
+				1E841B3F24AD378A00BC14B0 /* RuiZiWenShuaiKeAiFan-TTF-2.ttf in Resources */,
 				1E46FAB724997DF800631906 /* MavenPro-Bold.ttf in Resources */,
 				1E46FAB524997DF800631906 /* MavenPro-Regular.ttf in Resources */,
 				1E46FA5924992F5C00631906 /* LaunchScreen.storyboard in Resources */,
@@ -858,8 +862,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = student.OOTD;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = LiwenQiao.OOTD;
+				PRODUCT_NAME = "OOTD掌心衣橱";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -877,8 +881,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = student.OOTD;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = LiwenQiao.OOTD;
+				PRODUCT_NAME = "OOTD掌心衣橱";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -21,7 +21,7 @@ class OOTDUserMainPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "我的"
+        title = "Me"
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
         navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
@@ -128,7 +128,7 @@ extension OOTDUserMainPage: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userSettingTableViewCell", for: indexPath)
         cell.textLabel?.text = settingItemList[indexPath.row]
-        cell.textLabel?.font = OOTDConstant.fontNormal
+        cell.textLabel?.font = UIFont(name: "ChineseFontRegular", size: 14)
         cell.textLabel?.textColor = OOTDConstant.darkBgColor
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = OOTDConstant.white.withAlphaComponent(0.8)

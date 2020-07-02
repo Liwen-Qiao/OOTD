@@ -21,6 +21,7 @@ class OOTDClosetMainPage: UIViewController{
     private var accessoresView: OOTDClothesTypeView!
     
     private var clothesViewList: [OOTDClothesTypeView] = []
+    private var theClothesArrayList: [ClothesRealmModel] = []
     private var clothesList: [[ClothesRealmModel]] = []
     
     override func viewDidLoad() {
@@ -29,6 +30,7 @@ class OOTDClosetMainPage: UIViewController{
         navigationController?.navigationBar.barTintColor = OOTDConstant.universalColor
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
+        title = "Closet"
         
         let button = UIButton()
         button.layer.cornerRadius = 0.5 * button.bounds.size.width
@@ -38,7 +40,17 @@ class OOTDClosetMainPage: UIViewController{
         addButton.customView = button
         button.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         button.easy.layout(Left(0),Right(0), Width(40), Height(30))
-        navigationItem.setRightBarButton(addButton, animated: false)
+        //navigationItem.setRightBarButton(addButton, animated: false)
+        
+        let showButton = UIButton()
+        showButton.layer.cornerRadius = 0.5 * button.bounds.size.width
+        showButton.alpha = 0.7
+        showButton.setImage(#imageLiteral(resourceName: "showAll"), for: .normal)
+        let showAllButton = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        showAllButton.customView = showButton
+        showButton.addTarget(self, action: #selector(showAllButtonClicked), for: .touchUpInside)
+        showButton.easy.layout(Left(0),Right(0), Width(30), Height(30))
+        navigationItem.setRightBarButtonItems([addButton, showAllButton], animated: false)
         
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
@@ -65,7 +77,7 @@ class OOTDClosetMainPage: UIViewController{
         let realm = try! Realm()
         //let predicate = NSPredicate(format: "userEmail = %@", email)
         let theClothesList = realm.objects(ClothesRealmModel.self)
-        var theClothesArrayList : [ClothesRealmModel] = []
+        theClothesArrayList.removeAll()
         theClothesArrayList.append(contentsOf: theClothesList)
         self.clothesList = ClothesRealmModel.classifyClothesByType(clothesList: theClothesArrayList, clothesType: [0,1,2,3,4,5,6,7])
         for clothesView in clothesViewList{
@@ -140,6 +152,11 @@ class OOTDClosetMainPage: UIViewController{
     //export button event
     @objc func addButtonClicked(){
         let newPage = OOTDAddClothesItemPage()
+        self.navigationController?.pushViewController(newPage, animated: true)
+    }
+    
+    @objc func showAllButtonClicked(){
+        let newPage = OOTDOneTypeClothesMainPage(oneTypeClothesList: theClothesArrayList)
         self.navigationController?.pushViewController(newPage, animated: true)
     }
 }

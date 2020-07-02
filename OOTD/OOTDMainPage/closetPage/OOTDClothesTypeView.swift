@@ -39,7 +39,7 @@ class OOTDClothesTypeView: UIView {
         self.clothesTypeBtSelectedDelegate = delegate
         super.init(frame:frame)
         
-        self.backgroundColor = OOTDConstant.darkBgColor.withAlphaComponent(0.5)
+        self.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.5)
         //        self.layer.borderColor = OOTDConstant.white.cgColor
         //        self.layer.borderWidth = 3
         self.layer.shadowColor = UIColor.darkGray.cgColor
@@ -68,21 +68,21 @@ class OOTDClothesTypeView: UIView {
         lebelBgView.isHidden = true
         
         clothesTypeLabel = UILabel()
-        clothesTypeLabel.textColor = OOTDConstant.white
+        clothesTypeLabel.textColor = OOTDConstant.darkBgColor
         clothesTypeLabel.font = OOTDConstant.fontNormal
         lebelBgView.addSubview(clothesTypeLabel)
         //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
         clothesTypeLabel.easy.layout([Top(12), Left(10), Right(0), Height(20)])
         
         let clothesLabel = UILabel()
-        clothesLabel.textColor = OOTDConstant.white
+        clothesLabel.textColor = OOTDConstant.darkBgColor
         clothesLabel.text = "No."
         clothesLabel.font = OOTDConstant.fontSmall
         lebelBgView.addSubview(clothesLabel)
         clothesLabel.easy.layout([Bottom(15), Left(10), Width(30), Height(12)])
         
         clothesNumberLabel = UILabel()
-        clothesNumberLabel.textColor = OOTDConstant.white
+        clothesNumberLabel.textColor = OOTDConstant.darkBgColor
         clothesNumberLabel.text = "0"
         lebelBgView.addSubview(clothesNumberLabel)
         //toolBarHightLight.backgroundColor = OOTDConstant.cloudColor
