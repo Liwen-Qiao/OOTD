@@ -12,6 +12,7 @@ import UIKit
 struct OOTDConstant {
     
     //color
+    static let lightUniversalColor = #colorLiteral(red: 0.9732161187, green: 0.9128755676, blue: 0.8356090356, alpha: 1)
     static let universalColor = #colorLiteral(red: 0.8658104539, green: 0.7707558274, blue: 0.6890796423, alpha: 1)
     static let darkUniversalColor = #colorLiteral(red: 0.5944324136, green: 0.5641926527, blue: 0.5408225656, alpha: 1)
         //UIColor(red: 185/225, green: 185/255, blue: 156/255, alpha: 1.0)

@@ -151,7 +151,7 @@ class OOTDEditWearPage: UIViewController {
         layerViewButton.setImage(#imageLiteral(resourceName: "layerEdit"), for: .normal)
         layerViewButton.addTarget(self, action: #selector(self.layerViewButtonPressed), for: .touchUpInside)
         self.view.addSubview(layerViewButton)
-        layerViewButton.easy.layout([Left(20),Bottom(20).to(closetMainView),Width(25),Height(25)])
+        layerViewButton.easy.layout([Right(20),Bottom(20).to(closetMainView),Width(25),Height(25)])
         layerViewButton.isSelected = false
     }
     

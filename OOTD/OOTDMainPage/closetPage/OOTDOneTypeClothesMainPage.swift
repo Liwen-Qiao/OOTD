@@ -47,7 +47,7 @@ class OOTDOneTypeClothesMainPage: UIViewController{
     
     func setupClothesColcView(){
         oneTypeClothesColcView = OOTDOneTypeClothesColcView(frame: CGRect.zero, oneTypeClothesList: oneTypeClothesList ?? [])
-        oneTypeClothesColcView.backgroundColor = OOTDConstant.universalColor.withAlphaComponent(0.2)
+        oneTypeClothesColcView.backgroundColor = OOTDConstant.lightUniversalColor.withAlphaComponent(0.5)
         self.view.addSubview(oneTypeClothesColcView)
         oneTypeClothesColcView.easy.layout([Edges(10)])
     }
